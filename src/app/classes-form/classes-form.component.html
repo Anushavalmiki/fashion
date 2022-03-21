@@ -15,11 +15,12 @@
                 <p class="newFont" style="color:#0C275A">Subject Name <span style="color: red;">*</span></p>
             </div>
             <div class="col-lg-3">
-                <p class="newFont" style="color:#0C275A">Date <span style="color: red;">*</span> </p>
+                <p class="newFont" style="color:#0C275A">Class Name <span style="color: red;">*</span></p>
             </div>
             <div class="col-lg-3">
-                <p class="newFont" style="color:#0C275A">Start Time<span style="color: red;">*</span> </p>
+                <p class="newFont" style="color:#0C275A">Date <span style="color: red;">*</span> </p>
             </div>
+         
         </div>
         <div class="row leavereq">
             <div class="col-lg-3">
@@ -29,20 +30,24 @@
                 </select>
             </div>
             <div class="col-lg-3">
-                <select class="form-control" name="cars" id="Duration" [(ngModel)]="subjectID" (change)="geSubjectID($event)">
+                <select class="form-control" name="subjectID" id="subjectID" [(ngModel)]="subjectID" (change)="geSubjectID($event)">
                     <option style="color:#0C275A" value="0">Select Subject Name</option>
-                    <option  style="color:#0C275A" *ngFor="let details of subjectlist"  value="{{details.id}}">{{details.subject}}</option>
+                    <option  style="color:#0C275A" *ngFor="let details of subjectlist"  value="{{details.id}}">{{details.name}}</option>
                 </select>
             </div>
-           
             <div class="col-lg-3">
-                <input type="date" class="form-control inputfield" placeholder="Start Date" [(ngModel)]="StartDate" name="StartDate">
+                <input type="text" class="form-control inputfield" placeholder="Class Name" [(ngModel)]="className" name="className">
             </div>
             <div class="col-lg-3">
-                <input type="time" class="form-control inputfield" placeholder="End Date" [(ngModel)]="EndDate" name="EndDate">
+                <input type="date" class="form-control inputfield" placeholder="Date" [(ngModel)]="date" name="date" id="date">
             </div>
+          
+
         </div><br>
         <div class="row leavereq ">
+            <div class="col-lg-3">
+                <p>Start Time<span style="color: red;">*</span></p>
+            </div>
             <div class="col-lg-3">
                 <p>End Time<span style="color: red;">*</span></p>
             </div>
@@ -52,11 +57,15 @@
         </div>
         <div class="row leavereq ">
             <div class="col-md-3">
-                <input type="time" class="form-control inputfield" placeholder="End Date" [(ngModel)]="BatchName" name="BatchName">
+                <input type="time" class="form-control inputfield" placeholder="End Time" id="startTime" name="startTime" [(ngModel)]="startTime" name="startTime">
                
             </div>
             <div class="col-md-3">
-                <input class="form-control inputfield" placeholder="Allowed Students per Batch" [(ngModel)]="AllowedStudents">
+                <input type="time" class="form-control inputfield" placeholder="End Time" id="endTime" name="endTime" [(ngModel)]="endTime" name="endTime">
+               
+            </div>
+            <div class="col-md-3">
+                <input class="form-control inputfield" placeholder="Class Link" id="classLink" name="classLink" [(ngModel)]="classLink">
             </div>
         </div>
         <br>    

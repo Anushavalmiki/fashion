@@ -46,9 +46,9 @@
                     <tbody>    
                         <tr  *ngFor="let details of classessList | filter:search">
                             <td style="color:#0C275A">{{details.courseName}}</td>
-                            <td style="color:#0C275A">{{details.subject}}</td>
+                            <td style="color:#0C275A">{{details.subjectName}}</td>
                             <td style="color:#0C275A">{{details.className}}</td>
-                            <td style="color:#0C275A">{{details.date}}</td>
+                            <td style="color:#0C275A">{{details.date|date}}</td>
                             <td style="color:#0C275A">{{details.startTime}}</td>
                             <td>{{details.endTime}}</td>
                             <td>{{details.classLink}}</td>

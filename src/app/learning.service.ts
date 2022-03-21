@@ -722,4 +722,17 @@ export class LearningService {
       this.baseURL + '/Master/GetSubjectMaster');
   }
 
+  public UpdateClasses(data: any) {
+    debugger;
+    this.url = this.baseURL + '/Master/UpdateClasses';
+    return this.http.post(this.url, data);
+  }
+
+
+  public InsertClasses(data: any) {
+    debugger;
+    this.url = this.baseURL + '/Master/InsertClasses';
+    return this.http.post(this.url, data);
+  }
+
 }

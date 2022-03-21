@@ -9,27 +9,37 @@ import Swal from 'sweetalert2';
   styleUrls: ['./classes-form.component.css']
 })
 export class ClassesFormComponent implements OnInit {
-  id:any;
-  result:any;
-  CourseList:any;
-  BatchList:any;
+  id: any;
+  result: any;
+  CourseList: any;
+  BatchList: any;
 
 
-  EmailID:any;
-  StartDate:any;
-  EndDate:any;
-  BatchName:any;
-  AllowedStudents:any;
+  EmailID: any;
+  StartDate: any;
+  EndDate: any;
+  BatchName: any;
+  AllowedStudents: any;
+  startTime: any;
+  subjectID: any
+  subjectlist: any;
+  date: any;
 
-  constructor(public LearningService:LearningService, public ActivatedRoute:ActivatedRoute) { }
-  trainerlist:any;
+  courseName: any;
+  endTime: any;
+  classLink: any;
+  CourseID: any;
+  className:any;
+
+  constructor(public LearningService: LearningService, public ActivatedRoute: ActivatedRoute) { }
+  trainerlist: any;
   ngOnInit(): void {
 
-    this.subjectID=0;
-    this.CourseID=0;
-    this.BatchName=0;
+    this.subjectID = 0;
+    this.CourseID = 0;
+
     this.GetSubjectMaster();
-    this.GetBatch();
+
 
     // this.ActivatedRoute.params.subscribe(params => {
     //   debugger
@@ -60,74 +70,77 @@ export class ClassesFormComponent implements OnInit {
     // this.BatchName=0;
   }
 
-  trainerName:any;
-  courseName:any;
+
 
   GetClasses() {
     this.LearningService.GetClasses().subscribe(
-    data => {
-    debugger
-    this.result = data;
-		this.result=this.result.filter((x: { id: any; })=>x.id==Number(this.id));
-    this.subjectID=this.result[0].subjectID;
-    this.CourseID=this.result[0].courseID;
-		// this.EmailID=this.result[0].emailID;
-		this.date=this.result[0].date;
-    this.EndDate=this.result[0].endDate;
-    this.BatchName=this.result[0].batchID;
-    this.AllowedStudents=this.result[0].noOfStudentsEnrolled;
+      data => {
+        debugger
+        this.result = data;
+        this.result = this.result.filter((x: { id: any; }) => x.id == Number(this.id));
+        this.subjectID = this.result[0].subjectID;
+        this.CourseID = this.result[0].courseID;
+        this.date = this.result[0].date;
+        this.className = this.result[0].className;
+        this.startTime = this.result[0].startTime;
+        this.endTime = this.result[0].endTime;
+        this.classLink = this.result[0].classLink;
       }
-    ) 
+    )
   }
 
-  Submit(){
-    debugger 
-   var json = {  
-     "subjectID":this.subjectID,
-     "courseID":this.CourseID,
-      // "emailID": this.EmailID,
+  Submit() {
+    debugger
+    var json = {
+      "subjectID": this.subjectID,
+      "courseID": this.CourseID,
+      "className": this.className,
       "date": this.date,
-      "endDate": this.EndDate,
-      "batchID": this.BatchName,
-      "noOfStudentsEnrolled": this.AllowedStudents
+      "startTime": this.startTime,
+      "endTime": this.endTime,
+      "classLink": this.classLink
     };
-    this.LearningService.InsertTrainerCourseMapping(json).subscribe(
+    this.LearningService.InsertClasses(json).subscribe(
       data => {
         debugger
         let trainerlist = data;
-    alert("Successfully Submitted...!")
-      location.href="#/ClassesDashboard";
+        Swal.fire("Successfully Submitted...!")
+        location.href = "#/ClassesDashboard";
       })
   }
 
-  date:any;
-  Update(){
+
+  Update() {
     debugger
-     var json = {
+    var json = {
       "ID": this.id,
-      "subjectID":this.subjectID,
-      "courseID":this.CourseID,
-      // "emailID": this.EmailID,
+      "subjectID": this.subjectID,
+      "courseID": this.CourseID,
+      "className": this.className,
       "date": this.date,
-      "endDate": this.EndDate,
-      "batchID": this.BatchName,
-      "noOfStudentsEnrolled": this.AllowedStudents         
-      };
-    
-      this.LearningService.UpdateTrainerCourseMapping(json).subscribe(
-        data => {
+      "startTime": this.startTime,
+      "endTime": this.endTime,
+      "classLink": this.classLink
+    };
+
+    this.LearningService.UpdateClasses(json).subscribe(
+      data => {
         debugger
         let result = data;
         Swal.fire("Successfully Updated...!");
-        location.href="#/ClassesDashboard";
+        location.href = "#/ClassesDashboard";
       })
   }
 
-  CourseID:any;
-  getCourseID(even:any)
-  {
+
+  getCourseID(even: any) {
     debugger
-    this.CourseID=even.target.value;
+    this.CourseID = even.target.value;
+    this.LearningService.GetSubjectMaster().subscribe(
+      data => {
+        debugger
+        this.subjectlist = data.filter(x => x.courseID == this.CourseID);
+      })
   }
   public GetCourse() {
     debugger
@@ -138,27 +151,12 @@ export class ClassesFormComponent implements OnInit {
       })
   }
 
-  // BatchName:any;
-  getBatchName(even:any)
-  {
-    debugger
-    this.BatchName=even.target.value;
-  }
-  public GetBatch() {
-    debugger
-    this.LearningService.GetBatch().subscribe(
-      data => {
-        debugger
-        this.BatchList = data;
-      })
-  }
 
-  subjectID:any
-  subjectlist:any;
-  geSubjectID(even:any)
-  {
+
+
+  geSubjectID(even: any) {
     debugger
-    this.subjectID=even.target.value;
+    this.subjectID = even.target.value;
   }
   public GetSubjectMaster() {
     debugger
