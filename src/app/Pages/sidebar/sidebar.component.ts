@@ -145,5 +145,9 @@ export class SidebarComponent implements OnInit {
 
 
 
+  classess() {
+    this.active = 'classess'
+    localStorage.setItem("clickname", "CLASSESS")
+  }
 
 }

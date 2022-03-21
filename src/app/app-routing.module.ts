@@ -45,6 +45,8 @@ import { CourseCertificateNewComponent } from './Pages/course-certificate-new/co
 import { SubjectComponent } from './subject/subject.component';
 import { SubjectdetailsComponent } from './subjectdetails/subjectdetails.component';
 
+import { ClassesDashboardComponent } from './classes-dashboard/classes-dashboard.component';
+import { ClassesFormComponent } from './classes-form/classes-form.component';
 
 
 
@@ -104,7 +106,10 @@ const routes: Routes = [
   {path:'TraineeReport',component: TraineeReportComponent},
   {path:'CourseCertificateNew/:id',component:CourseCertificateNewComponent},
   {path:'Subject',component:SubjectComponent},
-  {path:'Subjectdetails',component:SubjectdetailsComponent}
+  {path:'Subjectdetails',component:SubjectdetailsComponent},
+  {path:'ClassesDashboard',component:ClassesDashboardComponent},
+  {path:'ClassesForm',component:ClassesFormComponent},
+  {path:'ClassesForm/:id',component:ClassesFormComponent}
 
  
 

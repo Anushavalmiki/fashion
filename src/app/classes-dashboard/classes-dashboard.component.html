@@ -1,0 +1,74 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+            <p class="headings">Classess Dashboard</p>
+        </div>
+        <div class="col-lg-2">
+            <p class="count">Count: {{classessList.length}}</p>
+        </div>
+    </div>
+    <!-- <hr class="HrLine"> -->
+   <div class="card">
+       <br>
+    <div class="row FilterClass ">
+        <div class="col-lg-1">
+            <p class="filter">Filter By</p>
+        </div>
+        <div class="col-lg-6">
+                <input type="search" class="form-control search" [(ngModel)]="search" placeholder="Search for Name..">
+        </div>
+        <div class="col-lg-1"></div>
+    </div><br>
+</div> <br>
+    <div class="row">
+        <div class="col-lg-9"></div>
+        <div class="col-lg-3">
+            <button class="addnew" routerLink="/ClassesForm">Add</button>
+        </div>
+    </div> <br>
+  <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- <table class="table" *ngIf="(vendordetails | filter: search).length > 0; else noResults"> -->
+                    <table class="table"  *ngIf="(classessList | filter:search).length >=0; else noResults">
+                    <thead>
+                        <tr >
+                            <th>Course</th>
+                            <th>Subject</th>
+                            <th>Class Name</th>
+                            <th>Date</th>
+                            <th>Start Time</th>
+                            <th>End Time</th>
+                            <th>Class Link</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>    
+                        <tr  *ngFor="let details of classessList | filter:search">
+                            <td style="color:#0C275A">{{details.courseName}}</td>
+                            <td style="color:#0C275A">{{details.subject}}</td>
+                            <td style="color:#0C275A">{{details.className}}</td>
+                            <td style="color:#0C275A">{{details.date}}</td>
+                            <td style="color:#0C275A">{{details.startTime}}</td>
+                            <td>{{details.endTime}}</td>
+                            <td>{{details.classLink}}</td>
+                       
+                            <td style="width:100px">
+
+                                <img src="assets/Images/Edit_ICON.png" alt="Edit_ICON" style="width:20px;"
+                                routerLink="/ClassesForm" [routerLink]="['/ClassesForm', details.id]"> &nbsp;&nbsp;
+
+                                <img src="assets/Images/Delete_ICON.png" alt="Delete_ICON"
+                                (click)="Ondelete(details.id)" style="width:20px;">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <ng-template #noResults>
+                    <p class="NoResultShow"> No results found </p>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+
+</div>
