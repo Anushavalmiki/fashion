@@ -43,9 +43,9 @@
                 <table id="download" class="table | filter: search).length > 0; else noResults ">
                     <thead>
                         <tr>
-                            <th>Employee ID</th>
-                            <th>Employee Name</th>
-                            <th>Role</th>
+                            <th>Student ID</th>
+                            <th>Student Name</th>
+                            <!-- <th>Role</th> -->
                             <th>Course name</th>
                             <th>Start Date</th>
                             <th>Completion Date</th>
@@ -55,7 +55,7 @@
                         <tr *ngFor="let details of employeereportlist|filter :search">
                             <td style="color:#0C275A">{{details.staffID}}</td>
                             <td style="color:#0C275A">{{details.employeeName}}</td>
-                            <td style="color:#0C275A">{{details.employeeRole}}</td>
+                            <!-- <td style="color:#0C275A">{{details.employeeRole}}</td> -->
                             <td style="color:#0C275A">{{details.courseName}}</td>
                             <td style="color:#0C275A">{{details.modifiedDate}}</td>
                             <td style="color:#0C275A">{{details.completiondate}}</td>

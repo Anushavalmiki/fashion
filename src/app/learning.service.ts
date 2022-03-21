@@ -703,6 +703,18 @@ export class LearningService {
       this.host + '/Announcement/GetDepartmentMaster');
   }
 
+  // public GetPositionDetails() {
+  //   return this.http.get<any[]>(
+  //     this.host + "/Master/GetPositionDetails"
+  //   );
+  // }
+
+  public InsertSubjectMaster(data: any) {
+    debugger;
+    this.url = this.baseURL + '/Master/InsertSubjectMaster';
+    debugger
+    return this.http.post(this.url, data);
+  }
   public GetClasses() {
     debugger;
     return this.http.get<any[]>(

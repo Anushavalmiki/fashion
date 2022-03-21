@@ -22,7 +22,9 @@
             &nbsp;
             <span [ngClass]="active == 'Chapter' ? 'Active1' : 'Active3'"> Chapter</span>
         </a>
-
+        
+    
+    
 
 
         <a *ngIf="roleid=='3'" routerLink="/ManagerDashboard" class="tablinks" (click)="highlight($event)"
@@ -69,7 +71,7 @@
      
 
 
-     
+   
 
 
 
@@ -116,8 +118,19 @@
                     src="assets/Images/New folder/online-course1.png" style="width:13%; margin-right: 17px;">
                 &nbsp;
                 <span [ngClass]="active == 'course' ? 'Active1' : 'Active3'"> COURSE </span>
-
             </a>
+
+            <a routerLink="/Subject" class="tablinks" (click)="highlight($event)" (click)="Subject()">
+                <img src="assets/Images/online-course.png" style="width:13% ;margin-right: 17px;"
+                    [ngClass]="active == 'Subject' ? 'Active1' : 'Active2'" />
+                <img [ngClass]="active != 'Subject' ? 'Active1' : 'Active2'"
+                    src="assets/Images/New folder/online-course1.png" style="width:13%; margin-right: 17px;">
+                &nbsp;
+                <span [ngClass]="active == 'Subject' ? 'Active1' : 'Active3'"> SUBJECTS </span>
+            </a>
+               
+
+
             <a routerLink="/ChapterDashboard" class="tablinks" (click)="highlight($event)" (click)="chapter()">
                 <img src="assets/Images/1 (1).png" style="width:13% ;margin-right: 17px;"
                     [ngClass]="active == 'chapter' ? 'Active1' : 'Active2'" />
@@ -127,6 +140,11 @@
                 <span [ngClass]="active == 'chapter' ? 'Active1' : 'Active3'"> CHAPTER </span>
 
             </a>
+
+            
+
+
+
             <a routerLink="/Trainer" class="tablinks" (click)="highlight($event)" (click)="trainer()">
                 <img src="assets/Images/people.png" style="width:13% ;margin-right: 17px;"
                     [ngClass]="active == 'trainer' ? 'Active1' : 'Active2'" />
@@ -142,7 +160,7 @@
                 <img [ngClass]="active != 11 ? 'Active1' : 'Active2'" src="assets/Images/New folder/people (1).png"
                     style="width:13%; margin-right: 17px;">
                 &nbsp;
-                <span [ngClass]="active == 11 ? 'Active1' : 'Active3'"> ASSIGN TRAINER </span>
+                <span [ngClass]="active == 11 ? 'Active1' : 'Active3'"> ASSIGN FACULTY </span>
             </a>
             <a routerLink="/Employee" class="tablinks" (click)="highlight($event)" (click)="employee()">
                 <img src="assets/Images/people.png" style="width:13% ;margin-right: 17px;"
@@ -150,7 +168,7 @@
                 <img [ngClass]="active != 'employee' ? 'Active1' : 'Active2'"
                     src="assets/Images/New folder/people (1).png" style="width:13%; margin-right: 17px;">
                 &nbsp;
-                <span [ngClass]="active == 'employee' ? 'Active1' : 'Active3'"> EMPLOYEE </span>
+                <span [ngClass]="active == 'employee' ? 'Active1' : 'Active3'"> STUDENT </span>
             </a>
 
 
@@ -174,7 +192,7 @@
             <img [ngClass]="active != 'mycourse' ? 'Active1' : 'Active2'" src="assets/Images/New folder/online-course1.png
                 " style="width:13%; margin-right: 17px;">
             &nbsp;
-            <span [ngClass]="active == 'mycourse' ? 'Active1' : 'Active3'"> My COURSE </span>
+            <span [ngClass]="active == 'mycourse' ? 'Active1' : 'Active3'"> MY COURSE </span>
             <!-- <i class="fa fa-users "></i> -->
 
         </a>
@@ -196,7 +214,7 @@
         <img [ngClass]="active != 'traineeReport' ? 'Active1' : 'Active2'"
             src="assets/Images/New folder/people (1).png" style="width:13%; margin-right: 17px;">
         &nbsp;
-        <span [ngClass]="active == 'traineeReport' ? 'Active1' : 'Active3'">Trainee Report</span>
+        <span [ngClass]="active == 'traineeReport' ? 'Active1' : 'Active3'">FACULTY REPORT</span>
        </a>
 
 
@@ -241,7 +259,7 @@
             <img [ngClass]="active != 'submitest' ? 'Active1' : 'Active2'" src="assets/Images/New folder/homework.png"
                 style="width:13%; margin-right: 17px;">
             &nbsp;
-            <span [ngClass]="active == 'submitest' ? 'Active1' : 'Active3'"> Test Submitted </span>
+            <span [ngClass]="active == 'submitest' ? 'Active1' : 'Active3'"> TEST SUBMITTED </span>
         </a>
     </div>
 </div>
