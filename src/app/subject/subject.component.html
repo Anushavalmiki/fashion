@@ -45,7 +45,19 @@
                             <th>Description</th>
                             <th>Actions</th>
                         </tr>
-                        <tr>                           
+                        <tr *ngFor="let details of subjectlist">
+                            <td>{{details.coursename}}</td>
+                            <td>{{details.name}}</td>   
+                            <td>{{details.description}}</td> 
+                            <td>
+                                <img src="assets/Images/Edit_ICON.png" alt="Edit_ICON" style="width:20px; height:auto"
+                                  (click)="edit(details.id)"  > &nbsp;&nbsp;
+
+                                        <img src="assets/Images/Delete_ICON.png" alt="Delete_ICON"
+                                        (click)="delete(details.id)"      style="width:20px; height:auto" >
+                            </td> 
+
+
                         </tr>
                     </thead>
                 </table>

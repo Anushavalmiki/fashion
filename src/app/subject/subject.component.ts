@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LearningService } from '../learning.service';
 
 @Component({
   selector: 'app-subject',
@@ -7,9 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubjectComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private LearningService:LearningService ) { }
+  subjectlist:any;
   ngOnInit(): void {
+    this.GetSubjectMaster();
   }
+
+   public GetSubjectMaster(){
+    this.LearningService.GetSubjectMaster().subscribe(
+      data=>{
+        this.subjectlist=data;
+      }
+    )
+   }
+
+   edit(id:any){
+     location.href="#/Subjectdetails/"+id;
+   }
+
+   delete(id:any){
+
+   }
+
 
 }

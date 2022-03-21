@@ -42,6 +42,7 @@
                     <thead>
                         <tr>
                             <th>Course Name</th>
+                            <th>Subject Name</th>
                             <th>Chapter Name</th>
                             <th>Description</th>
                             <th style="width:15%">Chapter Photo</th>
@@ -51,6 +52,7 @@
                         </tr>
                         <tr *ngFor="let details of coursedetails | filter: search">
                             <td>{{details.courseName}}</td>
+                            <td>{{details.subjectname}}</td>
                             <td>{{details.name}}</td>
                             <td style="height:20px">{{details.shortdescription}}
                                 <span style="color:#3247D5" (click)="view(details.description)" data-toggle="modal"
