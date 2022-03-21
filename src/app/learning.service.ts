@@ -703,9 +703,23 @@ export class LearningService {
       this.host + '/Announcement/GetDepartmentMaster');
   }
 
+  public GetClasses() {
+    debugger;
+    return this.http.get<any[]>(
+      this.baseURL + '/Master/GetClasses');
+  }
 
 
+  public DeleteClasses(id: any) {
+    debugger
+    let APIURL = this.baseURL + "Master/DeleteClasses?ID=" + id;
+    return this.http.get<any[]>(APIURL);
+  }
 
-
+  public GetSubjectMaster() {
+    debugger;
+    return this.http.get<any[]>(
+      this.baseURL + '/Master/GetSubjectMaster');
+  }
 
 }

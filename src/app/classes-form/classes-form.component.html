@@ -1,0 +1,73 @@
+<div class="container-fluid">
+  
+    <div class="row">
+        <div class="col-lg-10">
+            <p class="headings">Classess Details</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="row leavereq">
+          
+            <div class="col-lg-3">
+                <p class="newFont" style="color:#0C275A">Course Name <span style="color: red;">*</span></p>
+            </div>
+            <div class="col-lg-3">
+                <p class="newFont" style="color:#0C275A">Subject Name <span style="color: red;">*</span></p>
+            </div>
+            <div class="col-lg-3">
+                <p class="newFont" style="color:#0C275A">Date <span style="color: red;">*</span> </p>
+            </div>
+            <div class="col-lg-3">
+                <p class="newFont" style="color:#0C275A">Start Time<span style="color: red;">*</span> </p>
+            </div>
+        </div>
+        <div class="row leavereq">
+            <div class="col-lg-3">
+                <select class="form-control" name="cars" id="Duration" [(ngModel)]="CourseID" (change)="getCourseID($event)">
+                    <option value="0">Select Course Name</option>
+                    <option  *ngFor="let details of CourseList"  value="{{details.id}}">{{details.name}}</option>
+                </select>
+            </div>
+            <div class="col-lg-3">
+                <select class="form-control" name="cars" id="Duration" [(ngModel)]="subjectID" (change)="geSubjectID($event)">
+                    <option style="color:#0C275A" value="0">Select Subject Name</option>
+                    <option  style="color:#0C275A" *ngFor="let details of subjectlist"  value="{{details.id}}">{{details.subject}}</option>
+                </select>
+            </div>
+           
+            <div class="col-lg-3">
+                <input type="date" class="form-control inputfield" placeholder="Start Date" [(ngModel)]="StartDate" name="StartDate">
+            </div>
+            <div class="col-lg-3">
+                <input type="time" class="form-control inputfield" placeholder="End Date" [(ngModel)]="EndDate" name="EndDate">
+            </div>
+        </div><br>
+        <div class="row leavereq ">
+            <div class="col-lg-3">
+                <p>End Time<span style="color: red;">*</span></p>
+            </div>
+            <div class="col-lg-4">
+                <p>Class Link<span style="color: red;">*</span></p>
+            </div>
+        </div>
+        <div class="row leavereq ">
+            <div class="col-md-3">
+                <input type="time" class="form-control inputfield" placeholder="End Date" [(ngModel)]="BatchName" name="BatchName">
+               
+            </div>
+            <div class="col-md-3">
+                <input class="form-control inputfield" placeholder="Allowed Students per Batch" [(ngModel)]="AllowedStudents">
+            </div>
+        </div>
+        <br>    
+        <div class="row">
+            <div class="col-lg-9"></div>
+            <div class="col-lg-1">
+                <button class="form-control cancel"  *ngIf="id==null || id==undefined" (click)="Submit()">Save</button>    
+             <button class="form-control cancel"  *ngIf="id!=null || id!=undefined" (click)="Update()">Update</button>   
+            </div><div class="col-lg-1">
+                <button class="form-control  cancel" (click)="cancel()">Cancel</button>
+            </div>
+        </div><br>
+    </div> <br>
+</div>

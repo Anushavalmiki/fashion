@@ -42,6 +42,8 @@ import { AssesmentDetailsComponent } from './assesment-details/assesment-details
 import { StartMyCourseNewComponent } from './Pages/start-my-course-new/start-my-course-new.component';
 import { TraineeReportComponent } from './Pages/trainee-report/trainee-report.component';
 import { CourseCertificateNewComponent } from './Pages/course-certificate-new/course-certificate-new.component';
+import { ClassesDashboardComponent } from './classes-dashboard/classes-dashboard.component';
+import { ClassesFormComponent } from './classes-form/classes-form.component';
 
 
 
@@ -99,7 +101,10 @@ const routes: Routes = [
   {path:'StartMyCourseNew/:id',component:StartMyCourseNewComponent},
   {path:'CourseCertificate/:id',component:CourseCertificateComponent},
   {path:'TraineeReport',component: TraineeReportComponent},
-  {path:'CourseCertificateNew/:id',component:CourseCertificateNewComponent}
+  {path:'CourseCertificateNew/:id',component:CourseCertificateNewComponent},
+  {path:'ClassesDashboard',component:ClassesDashboardComponent},
+  {path:'ClassesForm',component:ClassesFormComponent},
+  {path:'ClassesForm/:id',component:ClassesFormComponent}
 
  
 

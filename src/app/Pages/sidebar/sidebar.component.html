@@ -152,6 +152,20 @@
                 &nbsp;
                 <span [ngClass]="active == 'employee' ? 'Active1' : 'Active3'"> EMPLOYEE </span>
             </a>
+
+
+
+
+            <a routerLink="/ClassesDashboard" class="tablinks" (click)="highlight($event)" (click)="classess()" *ngIf="roleid==1 || roleid==4">
+                <!-- <img  class="dashboard" src="assets/Images/Vector.png" /> -->
+                <img src="assets/Images/New folder/categorie1.png" style="width:13% ;margin-right: 17px;"
+                    [ngClass]="active != 'classess' ? 'Active1' : 'Active2'" />
+                <img [ngClass]="active == 'classess' ? 'Active1' : 'Active2'" src="assets/Images/categories.png"
+                    style="width:13%; margin-right: 17px;">
+                &nbsp;
+                <span [ngClass]="active == 'classess' ? 'Active1' : 'Active3'"> CLASSESS </span>
+            </a>
+
         </div>
         <a *ngIf="roleid==2 || roleid==3" routerLink="/MyCourseDashboard" class="tablinks" (click)="highlight($event)"
             (click)="mycourse()">
