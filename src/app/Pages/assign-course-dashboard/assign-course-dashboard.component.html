@@ -1,0 +1,69 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-lg-10">
+            <p class="headings">Assign Course Dashboard</p>
+        </div>
+        <div class="col-lg-2">
+            <p class="count">Count: {{count}}</p>
+        </div>
+    </div>
+    <div class="card">
+        <br>
+        <div class="row FilterClass ">
+            <div class="col-lg-1">
+                <p class="filter">Filter By</p>
+            </div>
+            <div class="col-lg-5">
+                <input type="search" class="form-control search" placeholder="Search for Name.." [(ngModel)]="search">
+            </div>
+        </div><br>
+    </div> <br>
+
+
+
+
+
+    <div class="row">
+        <div class="col-lg-10"></div>
+        <div class="col-lg-2">
+            <button class="form-control addnew" routerLink="/AssignCourseToEmployee">Add</button>
+        </div>
+    </div> <br>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <table class="table" *ngIf="(result | filter: search).length > 0; else noResults">
+                    <thead>
+                        <tr>
+                            <th>Employee Name</th>
+                            <th>Course Name</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let details of result|filter:search">
+                            <td style="font-size: 15px;">{{details.employeeName}}</td>
+                            <td style="font-size: 15px;">{{details.name}}</td>
+                            <td style="width: 20%;">
+                                <!-- <button class="form-control button" (click)="Ondelete(details.id)">Delete</button><br>
+                                <button class="form-control button" (click)="Ondelete(details.id)">Edit</button> -->
+
+                                <img src="assets/Images/Edit_ICON.png" alt="Edit_ICON" style="width: 10%;"> &nbsp;&nbsp;
+
+                                <img src="assets/Images/Delete_ICON.png" alt="Delete_ICON"
+                                    (click)="Ondelete(details.id)" style="width: 10%;">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <ng-template #noResults>
+                    <p class="NoResultShow"> No results found for "{{search}}" </p>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,305 @@
+
+<div class="container-fluid">
+   <div class="card">
+       <br>
+       <div class="row">
+           <div class="col-lg-2">
+               <P class="filter2">Employee Name:</P>
+           </div>
+           <div class="col-lg-3">
+            <!-- <select  class="form-control "  id="Duration" (change)="getcategoryid($event)">
+                <option class="FilterClass"  value="0">Select Employee Name</option>
+                <option class="FilterClass">Emp 1</option>
+                <option class="FilterClass">Emp 2</option>
+                <option class="FilterClass">Emp 3</option>
+                <option class="FilterClass">Emp 4</option>
+            </select> -->
+
+            <select  class="form-control ">
+                <option class="FilterClass"  value="0">Select Employee Name</option>
+                <option class="FilterClass" *ngFor="let details of result" value="{{details.name}}">{{details.name}}</option>
+            </select>
+
+           </div>
+           <div class="col-lg-1"></div>
+           <div class="col-lg-2">
+               <p class="filter2">Year:</p>
+           </div>
+           <div class="col-lg-3">
+            <select  class="form-control "  id="Duration" >
+                <option class="FilterClass"  value="0">Select Year</option>
+                <option class="FilterClass" >2022</option>
+                <option class="FilterClass" >2021</option>
+                <option class="FilterClass" >2020</option>
+                <option class="FilterClass" >2019</option>
+            </select>
+           </div>
+       </div><br><br>
+
+       <div class="row">
+        <div class="col-lg-1" ></div>
+        <div class="col-lg-2" >
+            <button type="button" class="btn btn-danger" data-toggle="modal"
+            data-target="#enroll">Assigned</button>
+        </div>
+    </div><br><br><br>
+
+    <div class="row">
+        <div class="col-lg-1" ></div>
+        <div class="col-lg-2" >
+            <button type="button" class="btn btn-light" data-toggle="modal"
+            data-target="#enroll2">In Progress</button>
+        </div>
+    </div><br><br><br>
+
+    <div class="row">
+        <div class="col-lg-1" ></div>
+        <div class="col-lg-2" >
+            <button type="button" class="btn btn-success" data-toggle="modal"
+            data-target="#enroll3">Completed</button>
+        </div>
+    </div><br><br><br>
+
+       <div class="VerticalGreyLine1">
+       </div>
+       <div class="VerticalGreyLine2">
+       </div>
+   </div>
+</div>
+
+
+<div id="enroll" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title PopUpCard">Assigned for Courses</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <!-- <div class="row">
+                    <div class="col-lg-3">
+                        <label class="Text" style="font-weight: bold;">Name:</label>
+                    </div>
+                    <div class="col-lg-5">
+                        <input class="form-control" name="name" id="name"
+                            placeholder="Name" disabled>
+                    </div>
+                </div> <br>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label class="Text" style="font-weight: bold;">Phone No:</label>
+                    </div>
+                    <div class="col-lg-5">
+                        <input class="form-control" name="mobile" id="mobile"
+                            placeholder="mobile" disabled>
+                    </div>
+                </div> <br>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label class="Text" style="font-weight: bold;">Email:</label>
+                    </div>
+                    <div class="col-lg-5">
+                        <input class="form-control" name="emailID" id="emailID"
+                            placeholder="Email ID" disabled>
+                    </div>
+                </div> <br>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label class="Text" style="font-weight: bold;">Manager:</label>
+                    </div>
+                    <div class="col-lg-5">
+                        <input class="form-control" name="emailID" id="emailID" 
+                            placeholder="Manager" disabled>
+                    </div>
+                </div> <br> -->
+                 
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <table style="width: 100%;">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Employee Name</th>
+                                        <th>Course Name</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let details1 of result1">
+                                        <td></td>
+                                        <td style="font-size: 15px;" >{{details1.name}}</td>
+                                        <td style="font-size: 15px;" >{{details1.name}}</td>
+                                    </tr>
+                                    <!-- <tr>
+                                        <td></td>
+                                        <td style="font-size: 15px;">Chriss</td>
+                                        <td style="font-size: 15px;">JAVA Fullstack Developer</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td style="font-size: 15px;">Henric</td>
+                                        <td style="font-size: 15px;">MERN Developer</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td style="font-size: 15px;">Anand K</td>
+                                        <td style="font-size: 15px;">MEAN Developer</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td style="font-size: 15px;">Akash SJ</td>
+                                        <td style="font-size: 15px;">Digital Marketing</td>
+                                    </tr> -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="enroll2" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title PopUpCard">In Progress Courses</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <table style="width: 100%;">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Employee Name</th>
+                                        <th>Course Name</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let details1 of result1">
+                                        <td></td>
+                                        <td style="font-size: 15px;" >{{details1.name}}</td>
+                                        <td style="font-size: 15px;" >{{details1.name}}</td>
+                                    </tr>
+                                    <!-- <tr>
+                                        <td></td>
+                                        <td style="font-size: 15px;">Chriss</td>
+                                        <td style="font-size: 15px;">JAVA Fullstack Developer</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td style="font-size: 15px;">Henric</td>
+                                        <td style="font-size: 15px;">MERN Developer</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td style="font-size: 15px;">Anand K</td>
+                                        <td style="font-size: 15px;">MEAN Developer</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td style="font-size: 15px;">Akash SJ</td>
+                                        <td style="font-size: 15px;">Digital Marketing</td>
+                                    </tr> -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="enroll3" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title PopUpCard">Completed Courses</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <table style="width: 100%;">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Course Name</th>
+                                        <th>Employee Name</th>
+                                        <th>Assigned Date</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                        <th>Percentage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let details1 of result1">
+                                        <td>&nbsp;</td>
+                                        <td style="font-size: 15px;">{{details1.name}}</td>
+                                        <td style="font-size: 15px;">{{details1.name}}</td>
+                                        <td style="font-size: 15px;"></td>
+                                        <td style="font-size: 15px;">{{details1.startDate}}</td>
+                                        <td style="font-size: 15px;">{{details1.endDate}}</td>
+                                        <td style="font-size: 15px;">100%</td>
+                                    </tr>
+                                    <!-- <tr>
+                                        <td></td>
+                                        <td style="font-size: 15px;">Angular Developer</td>
+                                        <td style="font-size: 15px;">Akash kumar</td>
+                                        <td style="font-size: 15px;">18/07/2021</td>
+                                        <td style="font-size: 15px;">02/08/2021</td>
+                                        <td style="font-size: 15px;">30/10/2021</td>
+                                        <td style="font-size: 15px;">100%</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td style="font-size: 15px;">Python Developer</td>
+                                        <td style="font-size: 15px;">Joseph</td>
+                                        <td style="font-size: 15px;">02/06/2021</td>
+                                        <td style="font-size: 15px;">15/07/2021</td>
+                                        <td style="font-size: 15px;">16/10/2021</td>
+                                        <td style="font-size: 15px;">100%</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td style="font-size: 15px;">MEAN Developer</td>
+                                        <td style="font-size: 15px;">Vipul Kulkarni</td>
+                                        <td style="font-size: 15px;">20/08/2021</td>
+                                        <td style="font-size: 15px;">05/09/2021</td>
+                                        <td style="font-size: 15px;">10/11/2021</td>
+                                        <td style="font-size: 15px;">100%</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td style="font-size: 15px;">Digital Marketing</td>
+                                        <td style="font-size: 15px;">Prakash Raj</td>
+                                        <td style="font-size: 15px;">15/10/2021</td>
+                                        <td style="font-size: 15px;">01/11/2021</td>
+                                        <td style="font-size: 15px;">16/12/2021</td>
+                                        <td style="font-size: 15px;">100%</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td style="font-size: 15px;">DevOps</td>
+                                        <td style="font-size: 15px;">Harry J</td>
+                                        <td style="font-size: 15px;">03/07/2021</td>
+                                        <td style="font-size: 15px;">06/07/2021</td>
+                                        <td style="font-size: 15px;">04/10/2021</td>
+                                        <td style="font-size: 15px;">100%</td>
+                                    </tr> -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>

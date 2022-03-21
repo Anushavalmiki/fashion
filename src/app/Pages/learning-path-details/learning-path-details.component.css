@@ -1,0 +1,38 @@
+.card{
+    background-color: white;
+    padding:10px;
+}
+.Stage{
+
+    font-size: 15px;
+    color:gray;
+
+}
+.tagline{
+    border-top: 1px solid lightgray;
+}
+.span{
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    background: #d4e8e1;
+    color: #05a660;
+    display: inline-block;
+    text-align: center;
+    line-height: 20px;
+    text-align: center;
+}
+.Mouse{
+    margin-left: 15px;
+    font-size: 15px;
+}
+.start{
+    background-color: black;
+    color:white;
+    border-radius: 5px;
+    border:none;
+}
+.Data{
+    font-size: 15px;
+    font-weight: 100;
+}
