@@ -152,9 +152,9 @@ export class StartMyCourseNewComponent implements OnInit {
 
 
   public PreviewPdf(photo: any) {
-    this.show = 3
-    this.chapterphoto = this.sanitizer.bypassSecurityTrustResourceUrl(photo);
-    // window.open(photo, "_blank")
+    // this.show = 3
+    // this.chapterphoto = this.sanitizer.bypassSecurityTrustResourceUrl(photo);
+    window.open(photo, "_blank")
     // if (this.Attachmentlist.length != 0) {
     //   this.Attachmentlist = this.dummAttachmentlist.filter((x: { attachmentType: string; }) => x.attachmentType == 'Pdf')
     //   if (this.Attachmentlist.length != 0) {

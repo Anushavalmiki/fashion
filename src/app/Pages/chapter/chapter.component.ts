@@ -77,6 +77,11 @@ export class ChapterComponent implements OnInit {
       this.assessmentName=this.result[0].assesmentName,
       this.generalInstructions=this.result[0].generalInstructions
   
+      this.LearningService.GetSubjectMaster().subscribe(
+        data=>{
+          this.subjectlist=data.filter(x=>x.courseID==this.courseID)
+        }
+      )
         }
       ) 
     }

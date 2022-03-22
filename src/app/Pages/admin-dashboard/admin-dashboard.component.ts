@@ -77,7 +77,7 @@ export class AdminDashboardComponent implements OnInit {
         this.LearningService.GetTrainerCourseMappingByEnroll().subscribe(
           data => {
             debugger
-            this.trainerlist = data.filter(x=>x.staffID==this.userid&&x.status=='Manager Approved');
+            this.trainerlist = data.filter(x=>x.staffID==this.userid && x.status=='Manager Approved');
           })
 
           this.LearningService.GetEnrollCourseChaptersAssessment().subscribe(
@@ -111,6 +111,7 @@ export class AdminDashboardComponent implements OnInit {
           data => {
             debugger
             this.trainerlist = data;
+
           })
 
           this.LearningService.GetChapterAssessment().subscribe(

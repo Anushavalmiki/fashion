@@ -53,32 +53,32 @@
                     <table class="table" *ngIf="(stafflist | filter: search).length > 0; else noResults">
                         <thead>
                             <tr>
-                                <th>Employee Id</th>
-                                <th>Employee Name</th>
-                                <th>Role</th>
+                                <!-- <th>Employee Id</th> -->
+                                <th>Student Name</th>
+                                <!-- <th>Role</th> -->
                                 <th>Phone Number</th>
                                 <th>Email</th>
                                 <th>Date Of Joining</th>
-                                <th>Manager</th>
+                                <!-- <th>Manager</th> -->
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let item of stafflist|filter:search">
-                                <td>000{{item.id}}</td>
+                                <!-- <td>000{{item.id}}</td> -->
                                 <td>{{item.name}}</td>
-                                <td>{{item.role}}</td>
+                                <!-- <td>{{item.role}}</td> -->
                                 <td>{{item.mobile}}</td>
                                 <td>{{item.emailID}}</td>
                                 <td>{{item.joiningDate|date}}</td>
-                                <td>
+                                <!-- <td>
                                     <p class="tabletext" *ngIf="item.manager==null">
                                         NA
                                     </p>
                                     <p class="tabletext" *ngIf="item.manager!=null">
                                         {{item.manager}}
                                     </p>
-                                </td>
+                                </td> -->
                                 <td>
                                     <!-- <button class="edit" [routerLink]="['/EmployeeForm',item.id]">Edit</button>
                                     &nbsp;&nbsp;&nbsp;
