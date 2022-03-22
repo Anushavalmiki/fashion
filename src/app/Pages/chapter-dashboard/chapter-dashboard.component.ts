@@ -97,7 +97,10 @@ export class ChapterDashboardComponent implements OnInit {
   openAttchments(photo: any) {
     window.open(photo, "_blank")
   }
-  courseid: any;
+
+
+
+  
 
   getcourseid(even: any) {
     this.courseid = even.target.value;
@@ -109,10 +112,38 @@ export class ChapterDashboardComponent implements OnInit {
     }
   }
 
+  subjectlist:any;
+  public GetSubjectMaster(){
+     this.LearningService.GetSubjectMaster().subscribe(
+       data=>{
+         this.subjectlist=data;
+         this.dummnsubjectdetails=data;
+       }
+     )
+  }
+ 
+  courseid: any;
+  subjectdetails:any;
+  subjectid:any;
+  dummnsubjectdetails:any
+  getsubjectid(event: any) {
+    this.subjectid = event.target.value;
+    if (event.target.value != 0) {
+      this.subjectdetails = this.dummnsubjectdetails.filter((x: { subjectID: any; }) => x.subjectID == this.subjectid)
+    }
+    else{
+      this.GetChapter();
+    }
+  }
+
+
+
+
+
+
   photo:any;
   Showimage(chapterPhoto:any){
     this.photo=chapterPhoto;
-
   }
 
   view(desc:any){
@@ -120,6 +151,6 @@ export class ChapterDashboardComponent implements OnInit {
     
   }
 
-
+  
 
 }

@@ -45,18 +45,49 @@
             </div>
         </div>
         <div class="col-lg-3">
-            <button type="button" class="list-group-item list-group-item-action active color">
-                Chapters
+            <br>
+            <br>
+            <button type="button" class="list-group-item list-group-item-action active color" data-toggle="collapse"
+                data-target="#demo">
+                Subjects
             </button>
-            <div class="list-group" style=" overflow-y:auto;height:230px;border:black;border-bottom:2px solid silver;">
-                <button type="button" class="list-group-item list-group-item-action border"
-                    *ngFor="let details of coursedetails" (click)="getcoursedetails(details)">{{details.name}}</button>
+            <div id="demo" class="collapse">
+                <div class="brands-name">
+                    <div *ngFor="let details of subjectdetails; let $index=index;">
+                        <div class="list-group">
+                            <button class="list-group-item list-group-item-action border" (click)="getsubjectdetails(details,$index)">
+                                <div >{{details.name}}</div>
+                            </button>
+                            <div *ngIf="$index === expandedIndex">
+                                <div *ngFor="let details1  of chapterdetails;let i = index">
+
+                                    <div class="row" style="margin-left:0px;margin-right:0px">
+                                        <button class="list-group-item list-group-item-action border">
+                                            <div class="col-lg-12" (click)="getcoursedetails(details1)">
+                                              {{i+1}} . <b>{{details1.name}}</b></div>
+                                            </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <!-- <button type="button" class="list-group-item list-group-item-action active color">
+                Chapters
+            </button>          -->
+            <!-- <div id="demo1" class="collapse">
+                <div class="list-group" style=" overflow-y:auto;height:230px;border:black;border-bottom:2px solid silver;">
+                    <button type="button" class="list-group-item list-group-item-action border"
+                        *ngFor="let details of chapterdetails" (click)="getcoursedetails(details)">{{details.name}}</button>
+                </div>
+            </div> -->
+
             <br>
             <button type="button" class="list-group-item list-group-item-action active color">
                 Assessments
             </button>
-            <div class="list-group" style="overflow-y:auto;height:230px;">
+            <!-- <div class="list-group" style="overflow-y:auto;height:230px;">
                 <button type="button" class="list-group-item list-group-item-action border"
                     *ngFor="let details of coursedetails" (click)="getcoursedetails(details)"
                     [routerLink]="['/TakeAssessment',details.courseID,details.id]">{{details.assesmentName}}
@@ -77,15 +108,15 @@
                         </button>
                 </button>
                 <hr>
-            </div>
+            </div> -->
             <br>
             <br>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-lg-2"></div>
                 <div class="col-lg-8">
                     <button class="Certificate" (click)="certificate()">Certificate </button>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
@@ -126,4 +157,3 @@
       </div>
     </div>
   </div> -->
-

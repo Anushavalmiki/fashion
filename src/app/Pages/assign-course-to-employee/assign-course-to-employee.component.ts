@@ -22,6 +22,8 @@ export class AssignCourseToEmployeeComponent implements OnInit {
   emailID: any;
   staffId: any;
   ngOnInit(): void {
+    this.name123="";
+    this.courseid="";
     this.userid = sessionStorage.getItem('userid');
     this.GetCourse();
     this.GetStaff();

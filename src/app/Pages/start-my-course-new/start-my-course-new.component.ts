@@ -15,32 +15,31 @@ export class StartMyCourseNewComponent implements OnInit {
   constructor(private LearningService: LearningService, private ActivatedRoute: ActivatedRoute, private sanitizer: DomSanitizer) { }
 
   courseid: any;
+  expandedIndex:any;
 
   ngOnInit(): void {
+    this.expandedIndex = -1  
     this.ActivatedRoute.params.subscribe(params => {
       debugger
       this.courseid = params['id'];
-      this.GetChapter();
+
+      this.LearningService.GetSubjectMaster().subscribe(
+        data=>{
+          this.subjectdetails=data.filter(x=>x.courseID==this.courseid);
+          console.log("result",this.subjectdetails)
+        }
+      )
+      // this.GetChapter();
     }
     )
     this.show = 1;
-  }
 
-
-  coursedetails: any;
-  chapterdetails: any;
-  coursename: any;
-  chaptername: any;
-  chapterdescription: any;
-  chapterphoto: any;
-  show: any;
-  public GetChapter() {
-    debugger
+    
     this.LearningService.GetChapterListByEmployeeID(sessionStorage.getItem('userid')).subscribe(data => {
       debugger
       this.coursedetails = data.filter(x => x.courseID == this.courseid);
       // this.chapterdetails = data.filter(x=>x.ID==this.ID && x.courseID==this.courseid);
-      this.chapterdetails = data.filter(x => x.courseID == this.courseid);
+      // this.chapterdetails = data.filter(x => x.subjectID == this.subjectID);
       debugger
       this.coursename = this.coursedetails[0].courseName
       this.chaptername = this.coursedetails[0].name
@@ -60,6 +59,20 @@ export class StartMyCourseNewComponent implements OnInit {
 
     })
   }
+
+
+  
+
+
+  coursedetails: any;
+  chapterdetails: any;
+  coursename: any;
+  chaptername: any;
+  chapterdescription: any;
+  chapterphoto: any;
+  show: any;
+  ID:any
+
   getcoursedetails(details: any) {
     this.coursename = details.courseName
     this.chaptername = details.name
@@ -254,7 +267,53 @@ export class StartMyCourseNewComponent implements OnInit {
 
 
 
+  subjectid:any;
+  subjectname:any;
+  subjectID:any;
+  name:any;
+  getsubjectdetails(details:any,index:number){
+    this.subjectID=details.id;
+    // this.name=details.subjectname;
+    this.expandedIndex = index === this.expandedIndex ? -1 : index;  
+   this.GetChapter()
+  }
 
+  public GetChapter() {
+    debugger
+    this.LearningService.GetChapterListByEmployeeID(sessionStorage.getItem('userid')).subscribe(data => {
+      debugger
+      this.coursedetails = data.filter(x => x.courseID == this.courseid);
+      // this.chapterdetails = data.filter(x=>x.ID==this.ID && x.courseID==this.courseid);
+      this.chapterdetails = data.filter(x => x.subjectID == this.subjectID);
+      debugger
+      this.coursename = this.coursedetails[0].courseName
+      this.chaptername = this.coursedetails[0].name
+      this.chapterdescription = this.coursedetails[0].chapterText
+      this.chapterphoto = this.coursedetails[0].chapterPhoto
+      this.ShowAttachments(this.coursedetails[0].id)
+      this.show = 1
+      debugger
+      let result = this.chapterdetails.filter((x: { teststatus: string; }) => x.teststatus == 'Failed' || x.teststatus == 'nottaken');
+      debugger
+      if (result.length == 0) {
+        this.LearningService.UpdateCourseCompleted(sessionStorage.getItem('userid'), this.courseid).subscribe(data => {
+
+        })
+      }
+
+
+    })
+  }
+  
+  subjectdetails:any;
+  public (){
+    this.LearningService.GetSubjectMaster().subscribe(
+      data=>{
+        this.subjectdetails=data;
+        console.log("result",this.subjectdetails)
+      }
+    )
+  }
 
 
 

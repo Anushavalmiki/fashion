@@ -4,14 +4,14 @@
         <div class="col-lg-12">
             <div class="row">
                 <div class="col-lg-10">
-                    <p class="headings">Assign Course To Employee </p>
+                    <p class="headings">Assign Course To Student </p>
                 </div>
             </div>
             <div class="card">
                 <br>
                 <div class="row leavereq">
                     <div class="col-lg-2">
-                        <p class="newFont">Employee Name <span style="color: red;">*</span></p>
+                        <p class="newFont">Student Name <span style="color: red;">*</span></p>
                     </div>
                     <div class="col-lg-2">
                         <p class="newFont">Course <span style="color: red;">*</span></p>
@@ -19,12 +19,14 @@
                 </div>
                 <div class="row leavereq">
                     <div class="col-md-2">
-                        <select class="form-control" name="name123" id="name123" [(ngModel)]="name123" >
+                        <select class="form-control" name="name123" id="name123" [(ngModel)]="name123">
+                            <option value="">Select Student </option>
                             <option *ngFor="let details of stafflist" value="{{details.name}}">{{details.name}}</option> 
                         </select>
                     </div>
                     <div class="col-md-2">
                         <select class="form-control" name="id" id="id" [(ngModel)]="courseid">
+                            <option value="">Select Course</option>
                             <option *ngFor="let details of courselist" value="{{details.id}}">{{details.name}}</option>
                         </select>
                     </div>
