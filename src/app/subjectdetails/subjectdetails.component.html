@@ -1,0 +1,48 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-lg-2">
+            <p class="headings">Subject Details </p>
+        </div>
+        <div class="col-lg-8"></div>
+    </div>
+    <!-- <hr> -->
+    <div class="card">
+        <div class="row head">
+            <div class="col-lg-3">
+                <p>Course</p>
+            </div>
+            <div class="col-lg-3">
+                <p>Subject Name</p>
+            </div>
+            <div class="col-lg-3">
+                <p>Description</p>
+            </div>
+        </div>
+        <br>
+        <div class="row header">
+            <div class="col-lg-3">
+                <select class="form-control" id="courseid" name="courseid" (change)="getcourseid($event)" [(ngModel)]="courseid">
+                    <option value="">Select Course</option>
+                    <option *ngFor="let details of courselist" value="{{details.id}}">{{details.name}}</option>
+                </select>
+            </div>
+            <div class="col-lg-3">
+                <input class="form-control" placeholder="SubjectName" [(ngModel)]="subjectname" name="subjectname" >
+            </div>
+            <div class="col-lg-3">
+                <textarea class="form-control" placeholder="Description" [(ngModel)]="description" name="description" ></textarea>
+            </div>
+        </div> <br>
+        <div class="row">
+            <div class="col-lg-9"></div>
+            <div class="col-lg-1">
+                <button class="form-control cancel" (click)="save()" *ngIf="id==undefined">Save</button>
+                <button class="form-control cancel"(click)="update()"  *ngIf="id!=undefined">Update</button>
+            </div>
+            <div class="col-lg-1">
+                <button class="form-control  cancel">Cancel</button>
+            </div>
+        </div>
+
+    </div>

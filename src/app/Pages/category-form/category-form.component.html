@@ -1,0 +1,38 @@
+<div class="container-fluid">   
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="headings">Category Details </p>
+                </div>
+                <div class="col-lg-8"></div>
+            </div>
+            <!-- <hr> -->
+            <div class="card">
+                <div class="row header">
+                    <div class="col-lg-3">
+                        <p>Category Name</p>
+                    </div>
+                    <div class="col-lg-4">
+                        <p>Description</p>
+                    </div>
+                </div>
+                <div class="row header">
+                    <div class="col-lg-3">
+                        <input class="form-control" placeholder="Category Name" [(ngModel)]="Name">
+                    </div>
+                    <div class="col-lg-4">
+                        <textarea class="form-control" placeholder="Description" rows="5" [(ngModel)]="Description"></textarea>
+                    </div>
+                </div> <br>
+                <div class="row">
+                    <div class="col-lg-9"></div>
+                    <div class="col-lg-1">
+                        <button class="form-control cancel" *ngIf="id==undefined" (click)="Save()">Save</button>
+                        <button class="form-control cancel" *ngIf="id!= undefined" (click)="Update()">Update</button>
+                    </div>
+                    <div class="col-lg-1">
+                        <button class="form-control cancel" (click)="Cancel()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        
+    </div>

@@ -1,0 +1,83 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-10">
+                    <p class="headings">Assessment Dashboard</p>
+                </div>
+                <div class="col-lg-2">
+                    <p class="count">
+                        Count: {{count}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card">
+    <br>
+    <div class="row FilterClass ">
+        <div class="col-lg-1">
+            <p class="filter">Filter By</p>
+        </div>
+        <div class="col-lg-3">
+            <select class="form-control" name="cars" id="Duration" (change)="getcourseid($event)">
+                <option value="Select">Select Course</option>
+                <option style="color:#0C275A" *ngFor="let details of courselist" value="{{details.id}}">
+                    {{details.name}}</option>
+            </select>
+        </div>
+        <div class="col-lg-3">
+            <select class="form-control" name="cars" id="Duration" (change)="getquestion($event)">
+                <option value="0">Select Question Type</option>
+                <option style="color:#0C275A" *ngFor="let details of questiontype"  value="{{details.id}}">
+                    {{details.type}}</option>
+            
+            </select>
+        </div>
+        <div class="col-lg-4">
+            <input type="search"  class="form-control search" placeholder="Search for Name..">
+        </div>
+    </div> <br>
+</div>
+<br>
+
+<div class="row">
+    <div class="col-lg-10"></div>
+    <div class="col-lg-2">
+        <button class="addnew" routerLink="/AssessmentForm">Add</button>
+    </div>
+</div> <br>
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12 scroll" style="height:500px">
+            <table class="table | filter: search).length > 0; else noResults">
+                <thead>
+                    <tr class="head" *ngFor="let details of test">
+                        <th>Employee Name</th>
+                        <th>Course Name</th>
+                        <th>Chapter Name</th>  
+                        <th>Actions</th>                  
+                    </tr>
+                    <tr class="header">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                         <!-- <button  [routerLink]="['/Checkanswer',item.id]"  *ngIf="item.checked!=1"
+                            class="button1 btn-primary">Check
+                        </button>
+                        <button *ngIf="item.checked==1" [routerLink]="['/Checkanswer',item.id]" class="button1 btn-primary" id="show==1">View
+                        </button> -->
+                        </td>
+                    </tr>
+                </thead>
+            </table>
+            <ng-template #noResults>
+                <p class="NoResultShow"> No results found for "{{search}}" </p>
+            </ng-template>
+        </div>
+    </div>
+</div>
