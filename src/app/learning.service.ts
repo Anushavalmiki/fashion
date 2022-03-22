@@ -747,4 +747,10 @@ export class LearningService {
     return this.http.post(this.url, data);
   }
 
+  public GetClassType() {
+    debugger;
+    return this.http.get<any[]>(
+      this.baseURL + '/Master/GetClassType');
+  }
+
 }

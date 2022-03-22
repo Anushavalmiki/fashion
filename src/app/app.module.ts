@@ -66,6 +66,7 @@ import { SubjectComponent } from './subject/subject.component';
 import { SubjectdetailsComponent } from './subjectdetails/subjectdetails.component';
 import { ClassesDashboardComponent } from './classes-dashboard/classes-dashboard.component';
 import { ClassesFormComponent } from './classes-form/classes-form.component';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -145,7 +146,9 @@ const ngWizardConfig: NgWizardConfig = {
    
   
   ],
-  providers: [],
+  providers: [
+    DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

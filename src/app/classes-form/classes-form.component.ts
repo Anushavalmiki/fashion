@@ -14,7 +14,7 @@ export class ClassesFormComponent implements OnInit {
   CourseList: any;
   BatchList: any;
 
-
+  classTypeList:any
   EmailID: any;
   StartDate: any;
   EndDate: any;
@@ -30,13 +30,18 @@ export class ClassesFormComponent implements OnInit {
   classLink: any;
   CourseID: any;
   className:any;
-
+  userid:any;
+  roleid:any;
+  classTypeId:any;
   constructor(public LearningService: LearningService, public ActivatedRoute: ActivatedRoute) { }
   trainerlist: any;
   ngOnInit(): void {
-
+    this.userid = sessionStorage.getItem('userid');
+    this.roleid = sessionStorage.getItem('roleid');
     this.subjectID = 0;
     this.CourseID = 0;
+    this.classTypeId=0;
+    this.GetClassType();
 
     this.GetSubjectMaster();
 
@@ -80,6 +85,7 @@ export class ClassesFormComponent implements OnInit {
         this.result = this.result.filter((x: { id: any; }) => x.id == Number(this.id));
         this.subjectID = this.result[0].subjectID;
         this.CourseID = this.result[0].courseID;
+        this.classTypeId=this.result[0].classTypeID;
         this.date = this.result[0].date;
         this.className = this.result[0].className;
         this.startTime = this.result[0].startTime;
@@ -95,6 +101,7 @@ export class ClassesFormComponent implements OnInit {
       "subjectID": this.subjectID,
       "courseID": this.CourseID,
       "className": this.className,
+      "ClassTypeID":this.classTypeId,
       "date": this.date,
       "startTime": this.startTime,
       "endTime": this.endTime,
@@ -117,6 +124,7 @@ export class ClassesFormComponent implements OnInit {
       "subjectID": this.subjectID,
       "courseID": this.CourseID,
       "className": this.className,
+      "ClassTypeID":this.classTypeId,
       "date": this.date,
       "startTime": this.startTime,
       "endTime": this.endTime,
@@ -144,10 +152,16 @@ export class ClassesFormComponent implements OnInit {
   }
   public GetCourse() {
     debugger
-    this.LearningService.GetCourse().subscribe(
+    this.LearningService.GetTrainerCourseMapping().subscribe(
       data => {
         debugger
-        this.CourseList = data;
+        // if(this.roleid==4){
+        //   this.CourseList = data.filter(x=>x.trainerID==this.userid);
+        // }
+        // else{
+          this.CourseList = data
+        // }
+       
       })
   }
 
@@ -164,6 +178,20 @@ export class ClassesFormComponent implements OnInit {
       data => {
         debugger
         this.subjectlist = data;
+      })
+  }
+
+  
+  geclassTypeId(even: any) {
+    debugger
+    this.classTypeId = even.target.value;
+  }
+  public GetClassType() {
+    debugger
+    this.LearningService.GetClassType().subscribe(
+      data => {
+        debugger
+        this.classTypeList = data;
       })
   }
 

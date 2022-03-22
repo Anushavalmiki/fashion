@@ -151,4 +151,176 @@ color:white;
     box-shadow: 1px 1px 15px 3px rgba(0, 0, 0, 0.12);
     border-radius: 12px;
   }
+
+  
+.event_Pending {
+    color: #4282be;
+    background: linear-gradient(110deg, #fdcd3b 60%, #4282be 60%);
+    /* background: linear-gradient(to bottom left, #33ccff 0%, #ffffcc 100%); */
+    border-radius: 5px;
+    border-bottom: solid 6px white;
+    background: white;
+}
+
+.event_Rejected {
+    color: #333;
+    background: linear-gradient(110deg, #fd413b 60%, #fd413b 60%);
+    /* background: linear-gradient(to bottom left, #33ccff 0%, #ffffcc 100%); */
+    border-radius: 5px;
+}
+
+.event_Approved {
+    color: #333;
+    background: linear-gradient(110deg, #63d82c 60%, #56ff4b 60%);
+    /* background: linear-gradient(to bottom left, #33ccff 0%, #ffffcc 100%); */
+    border-radius: 5px;
+}
+
+.callenderdiv {
+    width: 100%;
+    margin-left: 1px;
+}
+
+.callenderboxes {
+    width: 100%;
+    height: 170px;
+    background: white;
+    border: 1px solid antiquewhite;
+}
+
+.callenderboxes:hover {
+    /* background: greenyellow; */
+    border: 1px solid #00addf;
+}
+
+.todayDate {
+    /* background-color: #71c6c1; */
+    background: linear-gradient(110deg, #fdcd3b 60%, #4282be 60%);
+    width: 100%;
+    height: 500px;
+    text-align: center;
+}
+
+.datenumber {
+    color: white;
+    margin-top: 38%;
+    font-size: 100px;
+}
+
+.dateday {
+    color: white;
+    font-size: -webkit-xxx-large;
+}
+
+.callendernavButtons {
+    text-align: center;
+    font-size: xx-large;
+    margin-bottom: 2%;
+}
+
+.callendernavButtons a {
+    color: white;
+}
+
+
+/* for callender End*/
  
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #2F87CC;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2F87CC;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+
+/* Rounded sliders */
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.modal-title {
+    margin: 0;
+    line-height: 1.42857143;
+    color: #7d7d7d;
+    margin: 25px;
+}
+
+/* img {
+    height: 447px;
+    margin-left: 55px;
+} */
+
+.closebutton {
+    /* margin-left: 106px; */
+    border-radius: 6px;
+    background-color: #2F87CC;
+    color: white;
+    border: none;
+    width: 56px;
+    height: 36px;
+    margin-left: 599px;
+    margin-right: 20px;
+}
+.event_PendingBookCommunity{
+    color: #2F87CC !important;
+}
+
+.updatebutton {
+    border-radius: 6px;
+    background-color: #2F87CC;
+    color: white;
+    border: none;
+    width: 56px;
+    height: 36px;
+    margin-left: 599px;
+    margin-right: 0px;
+}
