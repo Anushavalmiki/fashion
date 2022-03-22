@@ -107,6 +107,7 @@ const routes: Routes = [
   {path:'CourseCertificateNew/:id',component:CourseCertificateNewComponent},
   {path:'Subject',component:SubjectComponent},
   {path:'Subjectdetails',component:SubjectdetailsComponent},
+  {path:'Subjectdetails/:id',component:SubjectdetailsComponent},
   {path:'ClassesDashboard',component:ClassesDashboardComponent},
   {path:'ClassesForm',component:ClassesFormComponent},
   {path:'ClassesForm/:id',component:ClassesFormComponent}

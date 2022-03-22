@@ -33,12 +33,14 @@ export class ChapterComponent implements OnInit {
   Attachmentlist:any;
   assessmentName:any;
   generalInstructions:any;
+  subjectID:any;
 
 
   ngOnInit(): void {
     this.courseID=0;
     this.GetCourse();
-    
+   
+    this.subjectid="";
 
     this.ActivatedRoute.params.subscribe(params => {
       this.id = params['id'];
@@ -65,6 +67,7 @@ export class ChapterComponent implements OnInit {
       debugger
       this.result=this.result.filter((x: { id: any; })=>x.id==Number(this.id));
       this.courseID=this.result[0].courseID;
+      this.subjectid=this.result[0].subjectID;
       this.name=this.result[0].name;
       this.description=this.result[0].description;
       this.ChapterPhoto=this.result[0].orginalChapterPhoto;
@@ -74,6 +77,11 @@ export class ChapterComponent implements OnInit {
       this.assessmentName=this.result[0].assesmentName,
       this.generalInstructions=this.result[0].generalInstructions
   
+      this.LearningService.GetSubjectMaster().subscribe(
+        data=>{
+          this.subjectlist=data.filter(x=>x.courseID==this.courseID)
+        }
+      )
         }
       ) 
     }
@@ -126,6 +134,12 @@ export class ChapterComponent implements OnInit {
   {
     debugger
     this.courseID=even.target.value;
+    this.LearningService.GetSubjectMaster().subscribe(
+      data=>{
+        this.subjectlist=data.filter(x=>x.courseID==this.courseID)
+      }
+    )
+
   }
 
   
@@ -143,6 +157,7 @@ export class ChapterComponent implements OnInit {
      var json = {
       "ID": this.id,
       "courseID": this.courseID,
+      "SubjectID":this.subjectid,
       "Name": this.name,
       "Description": this.description,
       "ChapterPhoto": this.ChapterPhoto,
@@ -169,12 +184,14 @@ export class ChapterComponent implements OnInit {
     else{
       var json = {
         "courseID": this.courseID,
+        "SubjectID":this.subjectid,
         "Name": this.name,
         "Description": this.description,
         "ChapterPhoto": this.ChapterPhoto,
         "ChapterText": this.chapterText ,
         "GeneralInstructions":this.generalInstructions,
-        "AssessmentName":this.assessmentName       
+        "AssessmentName":this.assessmentName   ,
+         
       };
       this.LearningService.InsertChapter(json).subscribe(
         data => {
@@ -285,8 +302,7 @@ export class ChapterComponent implements OnInit {
     }
   }
 
-
-
+ 
 
 
 
@@ -325,7 +341,21 @@ export class ChapterComponent implements OnInit {
   }
 
 
+  subjectid:any;
+  getsubjectid(event:any){
+    this.subjectid=event.target.value;
+    
+  }
 
+ 
+  subjectlist:any;
+  public GetSubjectMaster(){
+    this.LearningService.GetSubjectMaster().subscribe(
+      data=>{
+        this.subjectlist=data;
+      }
+    )
+  }
 
 
 

@@ -41,6 +41,7 @@ export class ChapterDashboardComponent implements OnInit {
     this.LearningService.GetChapter().subscribe(data => {
       debugger
       this.coursedetails = data;
+      console.log("courselist",this.coursedetails)
       this.dummcoursedetails = data;
       debugger
     })
@@ -77,7 +78,7 @@ export class ChapterDashboardComponent implements OnInit {
       data => {
         debugger
         this.GetChapter();
-        swal.fire('Sucessfully Deleted');
+        swal.fire('Deleted Successfully');
       }
     )
 

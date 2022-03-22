@@ -28,6 +28,7 @@ export class AssessmentFormComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.courseid="";
     this.GetQuestionMaster();
     this.ActivatedRoute.params.subscribe(params => {
       debugger
@@ -65,6 +66,7 @@ export class AssessmentFormComponent implements OnInit {
       data => {
         debugger
         this.QuestionList = data;
+        this.questionid="";
       })
   }
 
@@ -76,6 +78,7 @@ export class AssessmentFormComponent implements OnInit {
       data => {
         debugger
         this.dumchapterlist = data;
+        this.chapterid="";
       })
   }
   public GetCourse() {
@@ -84,6 +87,7 @@ export class AssessmentFormComponent implements OnInit {
       data => {
         debugger
         this.CourseList = data;
+        this.courseid="";
       })
   }
 
