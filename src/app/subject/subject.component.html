@@ -15,13 +15,13 @@
             <p class="filter">Filter By </p>
         </div>
         <!-- <div class="col-lg-3">
-            <select  class="form-control "  id="Duration"  >
-                <option class="FilterClass"  value="0">Select Category</option>
+            <select  class="form-control "  id="subjectid" name="subjectid" (change)="getsubjectid(event)">
+                <option class="FilterClass"  value="0">Select </option>
                 <option class="FilterClass"  value="0"></option>
             </select>
         </div> -->
-        <div class="col-lg-5">
-                <input type="search" class="form-control search" placeholder="Search for Course" >
+        <div class="col-lg-3">
+                <input type="search" class="form-control search" placeholder="Search for Course"  [(ngModel)]="search">
         </div>
     </div><br>
 </div> <br>
@@ -45,7 +45,7 @@
                             <th>Description</th>
                             <th>Actions</th>
                         </tr>
-                        <tr *ngFor="let details of subjectlist">
+                        <tr *ngFor="let details of subjectlist|filter:search">
                             <td>{{details.coursename}}</td>
                             <td>{{details.name}}</td>   
                             <td>{{details.description}}</td> 

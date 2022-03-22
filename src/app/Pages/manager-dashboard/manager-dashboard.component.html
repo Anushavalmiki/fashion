@@ -31,9 +31,9 @@
                 <input class="form-control" placeholder="Search" [(ngModel)]="search">
             </div>
             <div class="col-lg-3">
-                <select class="form-control" name="cars" id="Duration" (change)="staffid($event)">
-                    <option value="0">Select Student</option>
-                    <option *ngFor="let details of result | filter: search" value="{{details.id}}">{{details.employeeName}}
+                <select class="form-control" name="cars" id="Duration" (change)="getstaffid($event)">
+                    <option value="">Select Student</option>
+                    <option *ngFor="let details of result" value="{{details.id}}">{{details.employeeName}}
                     </option>
                 </select>
             </div>

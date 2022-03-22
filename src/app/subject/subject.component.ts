@@ -10,6 +10,7 @@ export class SubjectComponent implements OnInit {
 
   constructor(private LearningService:LearningService ) { }
   subjectlist:any;
+  search:any;
   ngOnInit(): void {
     this.GetSubjectMaster();
   }
@@ -18,6 +19,7 @@ export class SubjectComponent implements OnInit {
     this.LearningService.GetSubjectMaster().subscribe(
       data=>{
         this.subjectlist=data;
+        this.dumpsubjectlist=data;
       }
     )
    }
@@ -29,6 +31,18 @@ export class SubjectComponent implements OnInit {
    delete(id:any){
 
    }
+
+   subjectid:any;
+   dumpsubjectlist:any;
+   getsubjectid(event:any){
+     this.subjectid=event.target.length;
+    
+
+   }
+
+
+
+
 
 
 }

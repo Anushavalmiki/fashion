@@ -201,18 +201,18 @@ export class CatalogComponent implements OnInit {
     this.LearningService.GetCoursesByUserID(this.userid).subscribe(
       data => {
         debugger
-        this.courselist = data.filter(x => x.categoryID == value);
+        this.courselist = data.filter(x => x.ID == value);
         this.count = this.courselist.length;
-        for(let i=0;i<this.categorylist.length;i++)
-        {
-          if(this.categorylist[i].id==value)
-          {
-            debugger
-          }
-          else{
-            this.categorylist[i]["checked"]=false;
-          }
-        }
+        // for(let i=0;i<this.categorylist.length;i++)
+        // {
+        //   if(this.categorylist[i].id==value)
+        //   {
+        //     debugger
+        //   }
+        //   else{
+        //     this.categorylist[i]["checked"]=false;
+        //   }
+        // }
       })
     this.show1 = 1;
 

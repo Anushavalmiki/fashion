@@ -17,6 +17,9 @@ export class ChapterDashboardComponent implements OnInit {
   ngOnInit(): void {
     this.GetChapter();
     this.GetCourse();
+ 
+    this.GetSubjectMaster();
+    this.subjectid="";
   }
 
   public GetCourse() {
@@ -102,6 +105,7 @@ export class ChapterDashboardComponent implements OnInit {
 
   
 
+  courseid:any;
   getcourseid(even: any) {
     this.courseid = even.target.value;
     if (even.target.value != 0) {
@@ -113,23 +117,23 @@ export class ChapterDashboardComponent implements OnInit {
   }
 
   subjectlist:any;
+  dummnsubjectlist:any;
   public GetSubjectMaster(){
      this.LearningService.GetSubjectMaster().subscribe(
        data=>{
-         this.subjectlist=data;
-         this.dummnsubjectdetails=data;
+         this.subjectlist=data; 
+         this.dummnsubjectlist=data;  
+
        }
      )
   }
  
-  courseid: any;
-  subjectdetails:any;
   subjectid:any;
-  dummnsubjectdetails:any
-  getsubjectid(event: any) {
-    this.subjectid = event.target.value;
+  dumcoursedetails:any;
+  getsubjectid(event:any){
+    this.subjectid=event.target.value;
     if (event.target.value != 0) {
-      this.subjectdetails = this.dummnsubjectdetails.filter((x: { subjectID: any; }) => x.subjectID == this.subjectid)
+      this.coursedetails = this.dummcoursedetails.filter((x: { subjectID: any; }) => x.subjectID == this.subjectid)
     }
     else{
       this.GetChapter();

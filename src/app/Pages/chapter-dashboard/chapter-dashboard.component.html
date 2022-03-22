@@ -19,17 +19,13 @@
                     <option value="">Select Course</option>
                     <option style="color:#0C275A" *ngFor="let details of courselist" value="{{details.id}}">
                         {{details.name}}</option>
-                    <!-- <option style="color:#0C275A" *ngFor="let details of coursedetails" value="{{details.id}}">
-                        {{details.courseName}}</option> -->
                 </select>
             </div>
             <div class="col-lg-3">
-                <select class="form-control" name="subjectid" id="subjectid" (change)="getsubjectid($event)">
+                <select class="form-control" name="subjectid" id="subjectid" (change)="getsubjectid($event)" [(ngModel)]="subjectid">
                     <option value="">Select Subject</option>
                     <option style="color:#0C275A" *ngFor="let details of subjectlist" value="{{details.id}}">
                         {{details.name}}</option>
-                    <!-- <option style="color:#0C275A" *ngFor="let details of coursedetails" value="{{details.id}}">
-                        {{details.courseName}}</option> -->
                 </select>
             </div>
             <div class="col-lg-3">

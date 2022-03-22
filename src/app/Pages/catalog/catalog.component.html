@@ -33,12 +33,12 @@
             <div class="row">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h5 class="Category">Select Course Category</h5>
+                        <h5 class="Category">Select Course </h5>
                     </div>
                 </div>
                 <div class="vertical-menu VScroll">
                     <a class="FilterBox " style="   background-color: #02cfff !important; color: white;"
-                        *ngFor="let details of categorylist"> <input type="checkbox" value="{{details.id}}"
+                        *ngFor="let details of courselist"> <input type="checkbox" value="{{details.id}}"
                             [(ngModel)]="details.checked" name="details.checked"
                             (change)="filtercourse(details.name,details.id)"> {{details.name}}</a> <br>
                     <button class="ShowMore" (click)="GetCourse()">Clear
