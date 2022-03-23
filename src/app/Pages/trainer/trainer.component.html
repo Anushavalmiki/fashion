@@ -1,7 +1,7 @@
 <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-10">
-                    <p class="headings">Trainer Dashboard</p>
+                    <p class="headings">Faculty Dashboard</p>
                 </div>
                 <div class="col-lg-2">
                     <p class="count">Count: {{result.length}}</p>
@@ -40,7 +40,7 @@
                                     <th>Year of Experience</th>
                                     <th>Resume</th>
                                     <th>Skills and Technology</th>
-                                    <th>Trainer Fee</th>
+                                    <!-- <th>Trainer Fee</th> -->
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -56,7 +56,7 @@
                                         <img src="assets/pdf.jpg" *ngIf="details.nopdf=='0'" style="width: 30px;" (click)="OpenPdf(details.resumeUrl)">
                                     </td>
                                     <td>{{details.skillAndTecchnology}}</td>
-                                    <td>{{details.trainerFee}}</td>
+                                    <!-- <td>{{details.trainerFee}}</td> -->
                                     <td style="width:100px">
                                         <!-- <button class="edit" routerLink="/TrainerForm" [routerLink]="['/TrainerForm', details.id]">Edit</button> <br><br>
                                         <button class="edit" (click)="Ondelete(details.id)" >Delete</button> -->

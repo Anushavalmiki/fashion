@@ -155,7 +155,7 @@ export class ClassesDashboardComponent implements OnInit {
         this.callenderdaysdount[currenteventlist[0].date - 1]['className'] = MaintainanceList[j].className;
         this.callenderdaysdount[currenteventlist[0].date - 1]['classtype'] = MaintainanceList[j].classtype;
         this.callenderdaysdount[currenteventlist[0].date - 1]['mantainenceHtml'] =
-          "<span class='event_PendingBookCommunity'> ID : " + MaintainanceList[j].id +
+          "<span class='event_PendingBookCommunity'> ID : " 
            "<br>  Class  : " + MaintainanceList[j].className +
            "<br>  Class type : " + MaintainanceList[j].classtype +
           // "<br>  End Time : " + MaintainanceList[j].endTime +

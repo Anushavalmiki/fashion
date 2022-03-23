@@ -2,13 +2,13 @@
   
             <div class="row">
                 <div class="col-lg-10">
-                    <p class="headings">Trainer and Course Mapping </p>
+                    <p class="headings">Faculty and Course Mapping </p>
                 </div>
-            </div>
+            </div><br>
             <div class="card">
                 <div class="row leavereq">
                     <div class="col-lg-3">
-                        <p class="newFont" style="color:#0C275A">Trainer Name <span style="color: red;">*</span></p>
+                        <p class="newFont" style="color:#0C275A">Faculty Name <span style="color: red;">*</span></p>
                     </div>
                     <div class="col-lg-3">
                         <p class="newFont" style="color:#0C275A">Course Name <span style="color: red;">*</span></p>
@@ -23,7 +23,7 @@
                 <div class="row leavereq">
                     <div class="col-lg-3">
                         <select class="form-control" name="cars" id="Duration" [(ngModel)]="TrainerID" (change)="getTrainerID($event)">
-                            <option style="color:#0C275A" value="0">Select Trainer Name</option>
+                            <option style="color:#0C275A" value="0">Select Faculty Name</option>
                             <option  style="color:#0C275A" *ngFor="let details of trainerlist"  value="{{details.id}}">{{details.name}}</option>
                         </select>
                     </div>
@@ -42,16 +42,16 @@
                 </div><br>
                 <div class="row leavereq ">
                     <div class="col-lg-3">
-                        <p>Batch Name<span style="color: red;">*</span></p>
+                        <p>Academic Year<span style="color: red;">*</span></p>
                     </div>
                     <div class="col-lg-4">
-                        <p>Allowed Students per Batch<span style="color: red;">*</span></p>
+                        <p>Allowed Students for Academic Year<span style="color: red;">*</span></p>
                     </div>
                 </div>
                 <div class="row leavereq ">
                     <div class="col-md-3">
                         <select class="form-control" name="cars" id="Duration" [(ngModel)]="BatchName" (change)="getBatchName($event)">
-                            <option value="0">Select Batch Name</option>
+                            <option value="0">Select Academic Year</option>
                             <option  *ngFor="let details of BatchList"  value="{{details.id}}">{{details.batchName}}</option>
                         </select>
                     </div>
