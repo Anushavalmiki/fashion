@@ -36,6 +36,7 @@ export class ClassesDashboardComponent implements OnInit {
   classessList: any;
   workplaceList:any;
   userid:any;
+  classessListCopy:any;
 
   ngOnInit(): void {
     const format = 'yyyy-MM-dd';
@@ -77,12 +78,22 @@ export class ClassesDashboardComponent implements OnInit {
         else{
           this.classessList =  data
         }
-      
-
-
         this.buildcallender(this.classessList);
       })
+      this.classessListCopy=this.classessList 
   }
+
+public ShowMaintenanceRequest1(event:any){
+debugger;
+  this.LearningService.GetClasses().subscribe(
+    data => {
+  this.classessList =  data.filter((x: { day:any; })=> String(x.day) == event )
+
+})
+this.showorhidecontent = true;
+}
+
+
 
   public Ondelete(id:any) {
     this.LearningService.DeleteClasses(id).subscribe(
@@ -210,41 +221,41 @@ export class ClassesDashboardComponent implements OnInit {
 
   }
 
-  public ShowMaintenanceRequest1(evn: any) {
-    debugger;
-    var html = evn.srcElement.innerText.split(':');
-    if (html.length <= 5) {
-      debugger;
-      var s2 = html[1].substring(1,2)
-      let HTML = s2
-      let MaintenanceRequest = this.classessList.filter((x: { id: any; }) => x.id == HTML  );
-      Swal.fire(({
-        title: '<strong><u>Class Details</u></strong>',
+  // public ShowMaintenanceRequest1(evn: any) {
+  //   debugger;
+  //   var html = evn.srcElement.innerText.split(':');
+  //   if (html.length <= 5) {
+  //     debugger;
+  //     var s2 = html[1].substring(1,2)
+  //     let HTML = s2
+  //     let MaintenanceRequest = this.classessList.filter((x: { id: any; }) => x.id == HTML  );
+  //     Swal.fire(({
+  //       title: '<strong><u>Class Details</u></strong>',
       
-        html:
+  //       html:
         
 
-          '<p style="font-size: 14px;text-align: start;margin-left: 10px;"> Course : ' + MaintenanceRequest[0].courseName +
-          '       <br>' +
-          'Subject  : ' + MaintenanceRequest[0].subjectName +
-          '       <br>' +
-          'Start Time  : ' + MaintenanceRequest[0].startTime +
-          '       <br>' +
-          'End Time  : ' + MaintenanceRequest[0].endTime +
-          '       <br>' +
-          'Class Link: ' + MaintenanceRequest[0].classLink +
-          '       <br>' +
+  //         '<p style="font-size: 14px;text-align: start;margin-left: 10px;"> Course : ' + MaintenanceRequest[0].courseName +
+  //         '       <br>' +
+  //         'Subject  : ' + MaintenanceRequest[0].subjectName +
+  //         '       <br>' +
+  //         'Start Time  : ' + MaintenanceRequest[0].startTime +
+  //         '       <br>' +
+  //         'End Time  : ' + MaintenanceRequest[0].endTime +
+  //         '       <br>' +
+  //         'Class Link: ' + MaintenanceRequest[0].classLink +
+  //         '       <br>' +
 
-          '</p>'
-        ,
-        // showCloseButton: true,
-        showCancelButton: false,
-        focusConfirm: true,
+  //         '</p>'
+  //       ,
+  //       // showCloseButton: true,
+  //       showCancelButton: false,
+  //       focusConfirm: true,
 
-      }));
-    }
+  //     }));
+  //   }
 
 
-  }
+  // }
 
 }

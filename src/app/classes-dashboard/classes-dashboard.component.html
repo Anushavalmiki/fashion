@@ -73,12 +73,11 @@
                                     style="overflow-y: auto; border-bottom: solid 6px white;">
                                    
                                 </div>
-                                <!-- <div class="row" *ngIf="callenderdaysdount.length>0">
+                                <div class="row" *ngIf="calday.className!=null">
                                     <div class="col-lg-3">
-                                        *ngFor="let calday of callenderdaysdount;let i = index">
-                                        <button style="text-align: right;margin-left: 130px;" (click)="ShowMaintenanceRequest1($event)">view</button>
+                                        <p style="text-align: right;margin-left: 130px;font-size: 15px;margin-top: 30px;color: rgb(95, 95, 231);font-weight: bold;" (click)="ShowMaintenanceRequest1(calday.date)">view more..</p>
                                     </div>
-                                </div> -->
+                                </div>
                             </div>
                            
                         </div>
