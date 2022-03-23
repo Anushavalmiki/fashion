@@ -64,24 +64,32 @@ this.categoryid=list[1];
 
   Save(){
     debugger 
-   var json = {  
-      "categoryName": this.categoryName,
-      "name": this.name,
-      "description":this.description,  
-      "photo": this.Course_Photo,
-      "duration": this.duration,
-      "fee":this.fee,
-      "entryCriteria":this.entryCriteria,
-      "exitCriteria":this.exitCriteria,    
-      "CategoryID":this.categoryid
-    };
-    this.LearningService.InsertCourse(json).subscribe(
-      data => {
-        debugger
-        let id = data;
-        Swal.fire("Saved Sucessfully");
-      location.href="#/CourseDashboard"
-      })
+    if(this.categoryName==undefined||this.categoryName==0|| this.name==undefined||this.description==undefined
+      ||this.Course_Photo==undefined||this.duration==undefined||this.fee==undefined||this.entryCriteria==undefined||
+      this.exitCriteria==undefined||this.categoryid==undefined){
+      Swal.fire("Please Fill All Fields");
+    }
+    else{
+      var json = {  
+        "categoryName": this.categoryName,
+        "name": this.name,
+        "description":this.description,  
+        "photo": this.Course_Photo,
+        "duration": this.duration,
+        "fee":this.fee,
+        "entryCriteria":this.entryCriteria,
+        "exitCriteria":this.exitCriteria,    
+        "CategoryID":this.categoryid
+      };
+      this.LearningService.InsertCourse(json).subscribe(
+        data => {
+          debugger
+          let id = data;
+          Swal.fire("Saved Sucessfully");
+        location.href="#/CourseDashboard"
+        })
+    }
+
   }
 
     Update(){

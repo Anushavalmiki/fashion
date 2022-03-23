@@ -17,7 +17,14 @@ export class AssessmentdashboardComponent implements OnInit {
   courseid:any;
   coursedetails:any;
   dummcoursedetails:any;
+  userid: any;
+  roleid: any;
   ngOnInit(): void {
+
+    this.userid = sessionStorage.getItem('userid');
+    this.roleid = sessionStorage.getItem('roleid');
+
+
    this. GetAssessmentResult()
     this.GetAssessments();
     this.GetCourse();
@@ -85,7 +92,13 @@ export class AssessmentdashboardComponent implements OnInit {
     this.LearningService.GetAssessments().subscribe(
       data => {
         debugger
-        this.quetionlist = data;
+        if(this.roleid==4){
+          this.quetionlist = data.filter(x=>x.trainerID==this.userid);
+        }
+        else{
+          this.quetionlist = data;
+        }
+       
         console.log("questionlist",this.quetionlist)
         this.dummquetionlist = data;
       
