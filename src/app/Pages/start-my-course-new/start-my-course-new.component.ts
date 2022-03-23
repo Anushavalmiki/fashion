@@ -37,15 +37,15 @@ export class StartMyCourseNewComponent implements OnInit {
     
     this.LearningService.GetChapterListByEmployeeID(sessionStorage.getItem('userid')).subscribe(data => {
       debugger
-      this.coursedetails = data.filter(x => x.courseID == this.courseid);
+      var list = data.filter(x => x.courseID == this.courseid);
       // this.chapterdetails = data.filter(x=>x.ID==this.ID && x.courseID==this.courseid);
       // this.chapterdetails = data.filter(x => x.subjectID == this.subjectID);
       debugger
-      this.coursename = this.coursedetails[0].courseName
-      this.chaptername = this.coursedetails[0].name
-      this.chapterdescription = this.coursedetails[0].chapterText
-      this.chapterphoto = this.coursedetails[0].chapterPhoto
-      this.ShowAttachments(this.coursedetails[0].id)
+      this.coursename =list[0].courseName
+      this.chaptername = list[0].name
+      this.chapterdescription =list[0].chapterText
+      this.chapterphoto = list[0].chapterPhoto
+      this.ShowAttachments(list[0].id)
       this.show = 1
       debugger
       let result = this.chapterdetails.filter((x: { teststatus: string; }) => x.teststatus == 'Failed' || x.teststatus == 'nottaken');
@@ -282,7 +282,7 @@ export class StartMyCourseNewComponent implements OnInit {
     debugger
     this.LearningService.GetChapterListByEmployeeID(sessionStorage.getItem('userid')).subscribe(data => {
       debugger
-      this.coursedetails = data.filter(x => x.courseID == this.courseid);
+      this.coursedetails = data.filter(x => x.subjectID == this.subjectID);
       // this.chapterdetails = data.filter(x=>x.ID==this.ID && x.courseID==this.courseid);
       this.chapterdetails = data.filter(x => x.subjectID == this.subjectID);
       debugger

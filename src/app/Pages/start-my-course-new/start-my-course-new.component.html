@@ -84,14 +84,14 @@
             </div> -->
 
             <br>
-            <button type="button" class="list-group-item list-group-item-action active color">
+            <button type="button" class="list-group-item list-group-item-action active color"data-toggle="collapse"
+            data-target="#demo3" >
                 Assessments
             </button>
-            <!-- <div class="list-group" style="overflow-y:auto;height:230px;">
+         <div id="demo3" class="list-group collapse" style="overflow-y:auto;height:230px;">
                 <button type="button" class="list-group-item list-group-item-action border"
                     *ngFor="let details of coursedetails" (click)="getcoursedetails(details)"
                     [routerLink]="['/TakeAssessment',details.courseID,details.id]">{{details.assesmentName}}
-
                     <p style="display: inline;">
                         <label style="    font-family: 'Poppins';
                         color: blue;" *ngIf="details.obtainedMarks!=null">{{details.obtainedMarks/details.totalmarks
@@ -108,7 +108,7 @@
                         </button>
                 </button>
                 <hr>
-            </div> -->
+            </div> 
             <br>
             <br>
             <!-- <div class="row">
