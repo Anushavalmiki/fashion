@@ -24,7 +24,9 @@ export class AssessmentFormComponent implements OnInit {
   ChapterList: any;
   QuestionList: any;
   id: any;
-
+  subjectID:any;
+  subjectList:any;
+  dumsubjectList:any;
 
 
   ngOnInit(): void {
@@ -62,6 +64,15 @@ export class AssessmentFormComponent implements OnInit {
       }
     })
 
+    this.GetSubjectMaster();
+    this.ActivatedRoute.params.subscribe(params => {
+      debugger
+      this.courseid = params["id"];
+      if (this.subjectID != null && this.subjectID != undefined) {
+        this.GetSubjectMaster();
+      }
+    })
+
     // this.show = 1;
     // this.show2 = 1;
   }
@@ -75,6 +86,15 @@ export class AssessmentFormComponent implements OnInit {
         this.questionid="";
       })
   }
+  // public GetSubjectMaster() {
+  //   debugger
+  //   this.LearningService.GetSubjectMaster().subscribe(
+  //     data => {
+  //       debugger
+  //       this.dumsubjectList = data;
+  //       this.subjectID="";
+  //     })
+  // }
 
 
   dumchapterlist: any;
@@ -165,6 +185,7 @@ export class AssessmentFormComponent implements OnInit {
     this.tablecout = 1;
     var json = {
       "CourseID": this.courseid,
+      "SubjectID":this.subjectID,
       "ChapterID": this.chapterid,
       "QuestionID": this.questionid,
       "Question": this.Question,
@@ -223,6 +244,7 @@ export class AssessmentFormComponent implements OnInit {
       debugger
     var entity = {
         "CourseID": this.assessmenrArray[i].CourseID,
+        "SubjectID": this.assessmenrArray[i].SubjectID,
         "ChapterID": this.assessmenrArray[i].ChapterID,
         "QuestionID": this.assessmenrArray[i].QuestionID,
         "Question": this.assessmenrArray[i].Question,

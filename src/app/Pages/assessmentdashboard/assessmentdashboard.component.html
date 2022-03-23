@@ -53,8 +53,9 @@
             <table class="table" *ngIf="(quetionlist | filter: search).length > 0; else noResults">
                 <thead>
                     <tr class="head">
-                        <th>Course Name</th>
-                        <th>Chapter Name</th>
+                        <th>Course</th>
+                        <th>Subject</th>
+                        <th>Chapter</th>
                         <th>QuestionType</th>
                         <th>Question</th>
                         <th>Option1</th>
@@ -67,6 +68,7 @@
                     </tr>
                     <tr class="header" *ngFor="let item of quetionlist | filter: search">
                         <td>{{item.coursename}}</td>
+                        <td>{{item.subjectName}}</td>
                         <td>{{item.chaptername}}</td>
                         <td>{{item.type}}</td>
                         <td>{{item.question}}</td>
