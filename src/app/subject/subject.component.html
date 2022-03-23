@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-10">
-            <p class="headings">Sujects</p>
+            <p class="headings">Subjects</p>
         </div>
         <div class="col-lg-2">
             <p class="count">Count:</p>
@@ -14,12 +14,12 @@
         <div class="col-lg-1">
             <p class="filter">Filter By </p>
         </div>
-        <!-- <div class="col-lg-3">
-            <select  class="form-control "  id="subjectid" name="subjectid" (change)="getsubjectid(event)">
-                <option class="FilterClass"  value="0">Select </option>
-                <option class="FilterClass"  value="0"></option>
+        <div class="col-lg-3">
+            <select  class="form-control"  id="courseid" name="courseid" (change)="getcourseid($event)" [(ngModel)]="courseid">
+                <option value="">Select course</option>
+                <option *ngFor="let details of coursedetails" value="{{details.id}}">{{details.name}}</option>
             </select>
-        </div> -->
+        </div>
         <div class="col-lg-3">
                 <input type="search" class="form-control search" placeholder="Search for Course"  [(ngModel)]="search">
         </div>
@@ -56,8 +56,6 @@
                                         <img src="assets/Images/Delete_ICON.png" alt="Delete_ICON"
                                         (click)="delete(details.id)"      style="width:20px; height:auto" >
                             </td> 
-
-
                         </tr>
                     </thead>
                 </table>
