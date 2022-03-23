@@ -38,14 +38,55 @@ export class CategoryDashboardComponent implements OnInit {
       })
   }
 
-  public Ondelete(id:any) {
-    this.LearningService.DeleteCategoryMaster(id).subscribe(
-      data => {
-        debugger
-        Swal.fire('Successfully Deleted...!');
-        this.GetCategoryMaster();
+  // public Ondelete(id:any) {
+  //   this.LearningService.DeleteCategoryMaster(id).subscribe(
+  //     data => {
+  //       debugger
+  //       Swal.fire('Successfully Deleted...!');
+  //       this.GetCategoryMaster();
+  //     }
+  //   )
+  // }
+
+
+
+
+
+
+
+  public  Ondelete(id:any) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You want to delete',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, Delete it!',
+      cancelButtonText: 'No, keep it'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.LearningService.DeleteCategoryMaster(id).subscribe(data => {
+          Swal.fire(
+            'Success!',
+            'Deleted Successfully',
+            'success'
+          )
+          this.GetCategoryMaster()
+        })
+        // For more information about handling dismissals please visit
+        // https://sweetalert2.github.io/#handling-dismissals
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire(
+          'Cancelled',
+          'Your imaginary file is safe :)',
+          'error'
+        )
       }
-    )
+    })
   }
+
+  
+
+
+
 
 }
