@@ -21,6 +21,7 @@ export class TraineeReportComponent implements OnInit {
   ngOnInit(): void {
     this.GetTrainerReport();
     this.GetDepartmentMaster();
+    this.GetCourse();
   }
   dummemployeereportlist:any;
 
@@ -79,7 +80,22 @@ export class TraineeReportComponent implements OnInit {
   }
 
 
+  courseid:any;
+  getcourseid(event:any){
+    this.courseid=event.target.value;
+    this.employeereportlist=this.dummemployeereportlist.filter((x: { courseID: any; })=>x.courseID==this.courseid);
+  }
+ 
 
+  courselist:any;
+  public GetCourse(){
+    this.LearningService.GetCourse().subscribe(
+      data=>{
+        this.courselist=data;
+       
+      }
+    )
+  }
 
 
 }
