@@ -15,6 +15,7 @@ export class ChapterDashboardComponent implements OnInit {
   courselist: any;
 
   ngOnInit(): void {
+    
     this.GetChapter();
     this.GetCourse();
  

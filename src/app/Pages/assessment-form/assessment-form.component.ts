@@ -28,8 +28,12 @@ export class AssessmentFormComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.subjectid="";
     this.courseid="";
+   
     this.GetQuestionMaster();
+    this.GetSubjectMaster();
+    this.GetChapter();
     this.ActivatedRoute.params.subscribe(params => {
       debugger
       this.questionid = params["id"];
@@ -38,7 +42,9 @@ export class AssessmentFormComponent implements OnInit {
       }
     })
 
-    this.GetChapter();
+
+    this.chapterid="";
+   
     this.ActivatedRoute.params.subscribe(params => {
       debugger
       this.chapterid = params["id"];
@@ -72,12 +78,14 @@ export class AssessmentFormComponent implements OnInit {
 
 
   dumchapterlist: any;
+  dumpsubjectlist:any;
   public GetChapter() {
     debugger
     this.LearningService.GetChapter().subscribe(
       data => {
         debugger
-        this.dumchapterlist = data;
+        // this.ChapterList=data;
+        this.dumchapterlist = data;       
         this.chapterid="";
       })
   }
@@ -258,8 +266,33 @@ export class AssessmentFormComponent implements OnInit {
   //   this.show2=value;
   // }
 
+
+  
+  subjectlist:any;
+  public GetSubjectMaster(){
+    this.LearningService.GetSubjectMaster().subscribe(
+      data=>{
+        this.dumpsubjectlist=data;
+      }
+    )
+  }
+
+
   getcourseid(even: any) {
     this.courseid = even.target.value;
-    this.ChapterList = this.dumchapterlist.filter((x: { courseID: any; }) => x.courseID == this.courseid)
+    this.subjectlist = this.dumpsubjectlist.filter((x: { courseID: any; }) => x.courseID == this.courseid)
   }
+
+
+  subjectid:any;
+  getsubjectid(event:any){
+    this.subjectid=event.target.value;
+    this.ChapterList=this.dumchapterlist.filter((x: { subjectID: any; }) => x.subjectID == this.subjectid)
+  }
+  
+  getchapterid(event:any){
+    this.chapterid=event.target.value;
+  }
+
+
 }

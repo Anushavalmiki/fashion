@@ -14,6 +14,9 @@
                         <p>Course Name</p>
                     </div>
                     <div class="col-lg-2">
+                        <p>Subject  Name</p>
+                    </div>
+                    <div class="col-lg-2">
                         <p>Chapter Name</p>
                     </div>
                     <div class="col-lg-2">
@@ -34,7 +37,14 @@
                         </select>
                     </div>
                     <div class="col-lg-2">
-                        <select class="form-control" name="id" id="id" [(ngModel)]="chapterid">
+                        <select class="form-control"  name="subjectid" id="subjectid" [(ngModel)]="subjectid" (change)="getsubjectid($event)">
+                            <option value="">Subject Name</option>
+                            <option *ngFor="let details of subjectlist" value="{{details.id}}">{{details.name}}</option>
+                        </select>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <select class="form-control" name="chapterid" id="chapterid" [(ngModel)]="chapterid" (change)="getchapterid($event)">
                             <option value="">Chapter Name</option>
                             <option *ngFor="let details of ChapterList" value="{{details.id}}">{{details.name}}</option>
                         </select>

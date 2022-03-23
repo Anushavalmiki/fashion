@@ -34,9 +34,13 @@ export class ChapterComponent implements OnInit {
   assessmentName:any;
   generalInstructions:any;
   subjectID:any;
+  trainerid:any;
+  userid:any;
+  
 
 
   ngOnInit(): void {
+    // this.trainerid=localStorage.getItem('trainerid')
     this.courseID=0;
     this.GetCourse();
    

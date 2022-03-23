@@ -14,9 +14,9 @@ export class TrainerComponent implements OnInit {
   search: any;
   id: any;
   result: any;
+  roleid:any;
 
   ngOnInit(): void {
-
     this.GetTrainer();
     this.ActivatedRoute.params.subscribe(params => {
       debugger
