@@ -16,7 +16,7 @@
         </div>
         <div class="col-lg-3">
             <select  class="form-control"  id="courseid" name="courseid" (change)="getcourseid($event)" [(ngModel)]="courseid">
-                <option value="">Select course</option>
+                <option value="0">Select course</option>
                 <option *ngFor="let details of coursedetails" value="{{details.id}}">{{details.name}}</option>
             </select>
         </div>

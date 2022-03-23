@@ -127,6 +127,11 @@ input:not(:focus):valid~.floating-label {
   opacity: 1;
 }
 
+.image{
+  width:200px;
+  height:auto;
+}
+
 .inputText {
   font-size: 14px;
   width: 200px;

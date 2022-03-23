@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 import { LearningService } from '../learning.service';
 
 @Component({
@@ -16,7 +16,7 @@ export class SubjectComponent implements OnInit {
   ngOnInit(): void {
     this.GetSubjectMaster();
     this.GetCourse();
-    this.courseid="";
+    this.courseid=0;
   }
 
   
@@ -24,6 +24,7 @@ export class SubjectComponent implements OnInit {
     this.LearningService.GetSubjectMaster().subscribe(
       data=>{
         this.subjectlist=data;
+        this.dumcoursedetails=data;
        
       }
     )
@@ -38,10 +39,20 @@ export class SubjectComponent implements OnInit {
    }
 
 
+
+
+   
+
+
    courseid:any;
    getcourseid(event:any){
-     this.courseid=event.target.length;
-     this.subjectlist=this.dumcoursedetails.filter((x: { id: any; })=>x.id==this.courseid)
+     this.courseid=event.target.value;
+     if(event.target.value!=0){
+      this.subjectlist=this.dumcoursedetails.filter((x: { courseID: any; })=>x.courseID==this.courseid)
+     }
+     else{
+       this.GetSubjectMaster();
+     }
      
    }
 
@@ -52,7 +63,7 @@ export class SubjectComponent implements OnInit {
     this.LearningService.GetCourse().subscribe(
       data=>{
         this.coursedetails=data;
-        this.dumcoursedetails=data;
+       
       }
     )
   }
