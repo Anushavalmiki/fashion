@@ -16,6 +16,7 @@ export class TraineeReportComponent implements OnInit {
 
 
   search:any;
+  count:any;
   constructor(private LearningService:LearningService,private ActivatedRoute:ActivatedRoute ) { }
 
   ngOnInit(): void {
@@ -31,6 +32,7 @@ export class TraineeReportComponent implements OnInit {
      this.LearningService.GetTrainerReport(0,0).subscribe(data=>{
        this.employeereportlist=data;
        this.dummemployeereportlist=data;
+       this.count=this.employeereportlist.length
      }
       )
    }
@@ -83,7 +85,13 @@ export class TraineeReportComponent implements OnInit {
   courseid:any;
   getcourseid(event:any){
     this.courseid=event.target.value;
-    this.employeereportlist=this.dummemployeereportlist.filter((x: { courseID: any; })=>x.courseID==this.courseid);
+    if (event.target.value!='0'){
+      this.employeereportlist=this.dummemployeereportlist.filter((x: { courseID: any; })=>x.courseID==this.courseid);
+    }
+    else{
+      this.GetTrainerReport();
+    }
+   
   }
  
 

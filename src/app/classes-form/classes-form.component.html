@@ -6,7 +6,7 @@
         </div>
     </div>
     <div class="card">
-        <form #Ekramap="ngForm">
+        <form #Ekramapform="ngForm">
             <div class="row leavereq">
 
                 <div class="col-lg-3">
@@ -27,7 +27,7 @@
             <div class="row leavereq">
                 <div class="col-lg-3">
                     <select class="form-control" name="cars" id="Duration" [(ngModel)]="CourseID"
-                        (change)="getCourseID($event)">
+                        (change)="getCourseID($event)" required>
                         <option value="0">Select Course Name</option>
                         <option *ngFor="let details of CourseList" value="{{details.id}}">{{details.courseName}}
                         </option>
@@ -35,7 +35,7 @@
                 </div>
                 <div class="col-lg-3">
                     <select class="form-control" name="subjectID" id="subjectID" [(ngModel)]="subjectID"
-                        (change)="geSubjectID($event)">
+                        (change)="geSubjectID($event)" required>
                         <option style="color:#0C275A" value="0">Select Subject Name</option>
                         <option style="color:#0C275A" *ngFor="let details of subjectlist" value="{{details.id}}">
                             {{details.name}}</option>
@@ -43,11 +43,11 @@
                 </div>
                 <div class="col-lg-3">
                     <input type="text" class="form-control inputfield" placeholder="Class Name" [(ngModel)]="className"
-                        name="className">
+                        name="className" required>
                 </div>
                 <div class="col-lg-3">
                     <select class="form-control" name="classTypeId" id="classTypeId" [(ngModel)]="classTypeId"
-                        (change)="getclassTypeId($event)">
+                        (change)="getclassTypeId($event)" required>
                         <option style="color:#0C275A" value="0">Select Class Type</option>
                         <option style="color:#0C275A" *ngFor="let details of classTypeList" value="{{details.id}}">
                             {{details.type}}</option>
@@ -73,30 +73,32 @@
             <div class="row leavereq ">
                 <div class="col-lg-3">
                     <input type="date" class="form-control inputfield" placeholder="Date" [(ngModel)]="date" name="date"
-                        id="date">
+                        id="date" required>
                 </div>
                 <div class="col-md-3">
                     <input type="time" class="form-control inputfield" placeholder="End Time" id="startTime"
-                        name="startTime" [(ngModel)]="startTime" name="startTime">
+                        name="startTime" [(ngModel)]="startTime" name="startTime" required>
 
                 </div>
                 <div class="col-md-3">
                     <input type="time" class="form-control inputfield" placeholder="End Time" id="endTime"
-                        name="endTime" [(ngModel)]="endTime" name="endTime">
+                        name="endTime" [(ngModel)]="endTime" name="endTime" required>
 
                 </div>
                 <div class="col-md-3">
                     <input *ngIf="classTypeId==1" class="form-control inputfield" placeholder="Class Link"
-                        id="classLink" name="classLink" [(ngModel)]="classLink">
+                        id="classLink" name="classLink" [(ngModel)]="classLink" required>
 
                 </div>
+                
             </div>
+       
             <br>
             <div class="row">
                 <div class="col-lg-9"></div>
                 <div class="col-lg-1">
                     <button class="form-control cancel" (click)="SaveDetails()" *ngIf="id==null || id==undefined"
-                        [disabled]="Ekramap.form.invalid">Add</button>
+                        [disabled]="Ekramapform.form.invalid">Add</button>
 
                     <button class="form-control cancel" *ngIf="id!=null || id!=undefined"    
                         (click)="Update()">Update</button>
@@ -105,8 +107,8 @@
                     <button class="form-control  cancel" (click)="cancel()">Cancel</button>
                 </div>
             </div><br>
-           
         </form>
+       
     </div> <br>
     <div class="row" *ngIf="tablecount==1">
         <div class="col-lg-12">
