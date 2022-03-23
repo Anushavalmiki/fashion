@@ -195,14 +195,14 @@
             &nbsp;
         </a>
 
-        <a *ngIf="roleid==1||roleid==3" routerLink="/TraineeReport" class="tablinks" (click)="highlight($event)"
+        <a *ngIf="roleid!=2" routerLink="/TraineeReport" class="tablinks" (click)="highlight($event)"
         (click)="TraineeReport()">
         <img src="assets/Images/people.png" style="width:13% ;margin-right: 17px;"
             [ngClass]="active == 'traineeReport' ? 'Active1' : 'Active2'" />
         <img [ngClass]="active != 'traineeReport' ? 'Active1' : 'Active2'"
             src="assets/Images/New folder/people (1).png" style="width:13%; margin-right: 17px;">
         &nbsp;
-        <span [ngClass]="active == 'traineeReport' ? 'Active1' : 'Active3'">FACULTY REPORT</span>
+        <span [ngClass]="active == 'traineeReport' ? 'Active1' : 'Active3'">STUDENT REPORT</span>
        </a>
 
 
