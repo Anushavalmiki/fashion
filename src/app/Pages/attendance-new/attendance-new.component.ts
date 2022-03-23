@@ -14,8 +14,11 @@ export class AttendanceNewComponent implements OnInit {
   id: any;
   result: any;
   count: any;
-
+  roleid:any;
+  userid:any;
   ngOnInit(): void {
+    this.roleid = sessionStorage.getItem('roleid');
+    this.userid = sessionStorage.getItem('userid');
     this.GetAttendance_New();
   }
 

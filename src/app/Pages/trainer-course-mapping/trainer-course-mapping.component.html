@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-10">
-            <p class="headings">Trainer and Course</p>
+            <p class="headings">Faculty and Course</p>
         </div>
         <div class="col-lg-2">
             <p class="count">Count: {{count}}</p>
@@ -35,13 +35,13 @@
                 <table class="table" *ngIf="(Trainerdetails | filter: search).length > 0; else noResults ">
                     <thead>
                         <tr>
-                            <th>Trainer Name</th>
+                            <th>Faculty Name</th>
                             <th>Course Name</th>
                             <th>Email Id</th>
                             <th>Start Date</th>
                             <th>End Date</th>
-                            <th>Batch Name</th>
-                            <th>Allowed Students per Batch</th>
+                            <th>Academic Year</th>
+                            <th>Allowed Students for Academic Year</th>
                             <th>Actions</th>
                         </tr>
                         <tr *ngFor="let details of Trainerdetails|filter:search">
@@ -51,7 +51,7 @@
                             <td style="color:#0C275A">{{details.startDate|date}}</td>
                             <td style="color:#0C275A">{{details.endDate|date}}</td>
                             <td style="color:#0C275A">{{details.batchName}}</td>
-                            <td style="color:#0C275A">{{details.noOfStudentsEnrolled}}</td>
+                            <td style="color:#0C275A;text-align: center;">{{details.noOfStudentsEnrolled}}</td>
                             <td  style="width:100px">
 
                                 <!-- <button class="edit" (click)="edit(details.id)">Edit</button>
@@ -68,7 +68,7 @@
                     </thead>
                 </table>
                 <ng-template #noResults>
-                    <p class="NoResultShow"> No results found for "{{search}}" </p>
+                    <p class="NoResultShow"> No results found </p>
                 </ng-template>
             </div>
         </div>

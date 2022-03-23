@@ -55,8 +55,8 @@ export class TrainerFormComponent implements OnInit {
   Submit() {
     debugger
     if(this.TrainerName==undefined || this.PhoneNumber==undefined||this.EmailID==undefined || this.Address==undefined||
-       this.YearOfExperience==undefined||this.Company_logo==undefined||this.SkillsAndTechnology==undefined||
-       this.TrainerFeePerCourse==undefined)
+       this.YearOfExperience==undefined||this.Company_logo==undefined||this.SkillsAndTechnology==undefined
+     )
     {
       Swal.fire("Please fill all the fields");
     }
