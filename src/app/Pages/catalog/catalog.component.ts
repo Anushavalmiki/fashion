@@ -201,7 +201,7 @@ export class CatalogComponent implements OnInit {
     this.LearningService.GetCoursesByUserID(this.userid).subscribe(
       data => {
         debugger
-        this.courselist = data.filter(x => x.ID == value);
+        this.courselist = data.filter(x => x.id == value);
         this.count = this.courselist.length;
         // for(let i=0;i<this.categorylist.length;i++)
         // {
