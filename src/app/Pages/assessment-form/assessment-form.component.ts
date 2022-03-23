@@ -24,7 +24,9 @@ export class AssessmentFormComponent implements OnInit {
   ChapterList: any;
   QuestionList: any;
   id: any;
-
+  subjectID:any;
+  subjectList:any;
+  dumsubjectList:any;
 
 
   ngOnInit(): void {
@@ -56,6 +58,15 @@ export class AssessmentFormComponent implements OnInit {
       }
     })
 
+    this.GetSubjectMaster();
+    this.ActivatedRoute.params.subscribe(params => {
+      debugger
+      this.courseid = params["id"];
+      if (this.subjectID != null && this.subjectID != undefined) {
+        this.GetSubjectMaster();
+      }
+    })
+
     // this.show = 1;
     // this.show2 = 1;
   }
@@ -67,6 +78,15 @@ export class AssessmentFormComponent implements OnInit {
         debugger
         this.QuestionList = data;
         this.questionid="";
+      })
+  }
+  public GetSubjectMaster() {
+    debugger
+    this.LearningService.GetSubjectMaster().subscribe(
+      data => {
+        debugger
+        this.dumsubjectList = data;
+        this.subjectID="";
       })
   }
 
@@ -157,6 +177,7 @@ export class AssessmentFormComponent implements OnInit {
     this.tablecout = 1;
     var json = {
       "CourseID": this.courseid,
+      "SubjectID":this.subjectID,
       "ChapterID": this.chapterid,
       "QuestionID": this.questionid,
       "Question": this.Question,
@@ -215,6 +236,7 @@ export class AssessmentFormComponent implements OnInit {
       debugger
     var entity = {
         "CourseID": this.assessmenrArray[i].CourseID,
+        "SubjectID": this.assessmenrArray[i].SubjectID,
         "ChapterID": this.assessmenrArray[i].ChapterID,
         "QuestionID": this.assessmenrArray[i].QuestionID,
         "Question": this.assessmenrArray[i].Question,
@@ -260,6 +282,11 @@ export class AssessmentFormComponent implements OnInit {
 
   getcourseid(even: any) {
     this.courseid = even.target.value;
-    this.ChapterList = this.dumchapterlist.filter((x: { courseID: any; }) => x.courseID == this.courseid)
+    this.subjectList = this.dumsubjectList.filter((x: { courseID: any; }) => x.courseID == this.courseid)
+  }
+
+  getsubjectid(event:any){
+    this.subjectID = event.target.value;
+    this.ChapterList = this.dumchapterlist.filter((x: { subjectID: any; }) => x.subjectID == this.subjectID)
   }
 }
