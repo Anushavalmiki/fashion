@@ -14,7 +14,7 @@ export class ClassesFormComponent implements OnInit {
   CourseList: any;
   BatchList: any;
 
-  classTypeList:any
+  classTypeList: any
   EmailID: any;
   StartDate: any;
   EndDate: any;
@@ -29,10 +29,10 @@ export class ClassesFormComponent implements OnInit {
   endTime: any;
   classLink: any;
   CourseID: any;
-  className:any;
-  userid:any;
-  roleid:any;
-  classTypeId:any;
+  className: any;
+  userid: any;
+  roleid: any;
+  classTypeId: any;
   constructor(public LearningService: LearningService, public ActivatedRoute: ActivatedRoute) { }
   trainerlist: any;
   ngOnInit(): void {
@@ -40,7 +40,7 @@ export class ClassesFormComponent implements OnInit {
     this.roleid = sessionStorage.getItem('roleid');
     this.subjectID = 0;
     this.CourseID = 0;
-    this.classTypeId=0;
+    this.classTypeId = 0;
     this.GetClassType();
 
     this.GetSubjectMaster();
@@ -85,7 +85,7 @@ export class ClassesFormComponent implements OnInit {
         this.result = this.result.filter((x: { id: any; }) => x.id == Number(this.id));
         this.subjectID = this.result[0].subjectID;
         this.CourseID = this.result[0].courseID;
-        this.classTypeId=this.result[0].classTypeID;
+        this.classTypeId = this.result[0].classTypeID;
         this.date = this.result[0].date;
         this.className = this.result[0].className;
         this.startTime = this.result[0].startTime;
@@ -94,26 +94,76 @@ export class ClassesFormComponent implements OnInit {
       }
     )
   }
+  public keyresultArray: any = [];
+  tablecount: any;
+  public SaveDetails() {
+    debugger
+    if (this.CourseID == undefined || this.subjectID == 0 || this.classTypeId == 0 || this.date == undefined || this.className == undefined
+      || this.startTime == undefined || this.endTime == undefined) {
+      Swal.fire("Please Enter Mandatory Fields")
+    }
+    else {
+      this.tablecount = 1;
 
+      var json = {
+        "subjectID": this.subjectID,
+        "courseID": this.CourseID,
+        "className": this.className,
+        "ClassTypeID": this.classTypeId,
+        "date": this.date,
+        "startTime": this.startTime,
+        "endTime": this.endTime,
+        "classLink": this.classLink,
+        "ClassName": this.ClassName,
+        "CourseName": this.CourseName,
+        "SubjectName": this.SubjectName,
+        "Classtype": this.Classtype
+      }
+      debugger
+      this.keyresultArray.push(json)
+      this.subjectID = "",
+        this.CourseID="",
+        this.className="",
+        this.classTypeId="",
+        this.date="",
+        this.startTime="",
+        this.endTime="",
+        this.classLink="",
+        this.ClassName="",
+        this.CourseName="",
+        this.SubjectName="",
+        this.Classtype=""
+
+    }
+  }
+
+  ClassName: any;
+  CourseName: any;
+  SubjectName: any;
+  Classtype: any;
   Submit() {
     debugger
-    var json = {
-      "subjectID": this.subjectID,
-      "courseID": this.CourseID,
-      "className": this.className,
-      "ClassTypeID":this.classTypeId,
-      "date": this.date,
-      "startTime": this.startTime,
-      "endTime": this.endTime,
-      "classLink": this.classLink
-    };
-    this.LearningService.InsertClasses(json).subscribe(
-      data => {
-        debugger
-        let trainerlist = data;
-        Swal.fire("Successfully Submitted...!")
-        location.href = "#/ClassesDashboard";
-      })
+    for (let i = 0; i <= this.keyresultArray.length; i++) {
+      var json = {
+        "subjectID": this.subjectID,
+        "courseID": this.CourseID,
+        "className": this.className,
+        "ClassTypeID": this.classTypeId,
+        "date": this.date,
+        "startTime": this.startTime,
+        "endTime": this.endTime,
+        "classLink": this.classLink,
+
+
+      };
+      this.LearningService.InsertClasses(json).subscribe(
+        data => {
+          debugger
+          let trainerlist = data;
+          Swal.fire("Successfully Submitted...!")
+          location.href = "#/ClassesDashboard";
+        })
+    }
   }
 
 
@@ -124,7 +174,7 @@ export class ClassesFormComponent implements OnInit {
       "subjectID": this.subjectID,
       "courseID": this.CourseID,
       "className": this.className,
-      "ClassTypeID":this.classTypeId,
+      "ClassTypeID": this.classTypeId,
       "date": this.date,
       "startTime": this.startTime,
       "endTime": this.endTime,
@@ -155,13 +205,13 @@ export class ClassesFormComponent implements OnInit {
     this.LearningService.GetTrainerCourseMapping().subscribe(
       data => {
         debugger
-        // if(this.roleid==4){
-        //   this.CourseList = data.filter(x=>x.trainerID==this.userid);
-        // }
-        // else{
-          this.CourseList = data
-        // }
-       
+        if(this.roleid==4){
+          this.CourseList = data.filter(x=>x.trainerID==this.userid);
+        }
+        else{
+        this.CourseList = data
+        }
+
       })
   }
 
@@ -181,11 +231,13 @@ export class ClassesFormComponent implements OnInit {
       })
   }
 
-  
-  geclassTypeId(even: any) {
+
+  getclassTypeId(even: any) {
     debugger
     this.classTypeId = even.target.value;
+
   }
+
   public GetClassType() {
     debugger
     this.LearningService.GetClassType().subscribe(

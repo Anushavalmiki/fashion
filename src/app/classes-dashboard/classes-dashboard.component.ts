@@ -103,20 +103,14 @@ export class ClassesDashboardComponent implements OnInit {
 
   
   changeStatus(evn: any) {
-    if(this.roleid==2){
+   
       if (evn.target.value == 1) {
         this.showorhidecontent = true;
       }
       else {
         this.showorhidecontent = false;
       }
-    }
-    else{
-      this.showorhidecontent = true;
-    }
-
     
-
   }
 
   public buildcallender(MaintainanceList: string | any[]) {
@@ -151,11 +145,12 @@ export class ClassesDashboardComponent implements OnInit {
       debugger;
       let currenteventlist = this.callenderdaysdount.filter((x: { dateformat: string | number | Date; }) => this.datePipe.transform(x.dateformat, 'yyyy-MM-dd') == this.datePipe.transform(MaintainanceList[j].date, 'yyyy-MM-dd'));
       if (currenteventlist.length > 0) {
+        for (let j = 0; j < MaintainanceList.length; j++){}
         this.callenderdaysdount[currenteventlist[0].date - 1]['ID'] = MaintainanceList[j].id;
         this.callenderdaysdount[currenteventlist[0].date - 1]['className'] = MaintainanceList[j].className;
         this.callenderdaysdount[currenteventlist[0].date - 1]['classtype'] = MaintainanceList[j].classtype;
         this.callenderdaysdount[currenteventlist[0].date - 1]['mantainenceHtml'] =
-          "<span class='event_PendingBookCommunity'> ID : " 
+          "<span class='event_PendingBookCommunity'> ID :  "+ MaintainanceList[j].id +
            "<br>  Class  : " + MaintainanceList[j].className +
            "<br>  Class type : " + MaintainanceList[j].classtype +
           // "<br>  End Time : " + MaintainanceList[j].endTime +

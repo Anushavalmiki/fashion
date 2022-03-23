@@ -20,7 +20,7 @@
             <img [ngClass]="active == 'Chapter' ? 'Active1' : 'Active2'" src="assets/Images/chapter1.png"
                 style="width:13%; margin-right: 17px;">
             &nbsp;
-            <span [ngClass]="active == 'Chapter' ? 'Active1' : 'Active3'"> Chapter</span>
+            <span [ngClass]="active == 'Chapter' ? 'Active1' : 'Active3'"> CHAPTER SETUP</span>
         </a>
         
     
@@ -46,7 +46,7 @@
             <img [ngClass]="active != 'Assessments' ? 'Active1' : 'Active2'"
                 src="assets/Images/New folder/online-test (2).png" style="width:13%; margin-right: 17px;">
             &nbsp;
-            <span [ngClass]="active == 'Assessments' ? 'Active1' : 'Active3'"> Assessments </span>
+            <span [ngClass]="active == 'Assessments' ? 'Active1' : 'Active3'"> ASSESSMENT SETUP </span>
         </a>
          
         <a *ngIf="roleid==4" routerLink="/EmployeeAssessmentResult" class="tablinks" (click)="highlight($event)"
@@ -137,7 +137,8 @@
                 <img [ngClass]="active != 'chapter' ? 'Active1' : 'Active2'" src="assets/Images/New folder/1 (1)1.png"
                     style="width:13%; margin-right: 17px;">
                 &nbsp;
-                <span [ngClass]="active == 'chapter' ? 'Active1' : 'Active3'"> CHAPTER </span>
+                <span [ngClass]="active == 'chapter' ? 'Active1' : 'Active3'"> CHAPTER
+         </span>
 
             </a>
 
@@ -257,7 +258,7 @@
             <img [ngClass]="active == 'classess' ? 'Active1' : 'Active2'" src="assets/Images/categories.png"
                 style="width:13%; margin-right: 17px;">
             &nbsp;
-            <span [ngClass]="active == 'classess' ? 'Active1' : 'Active3'"> CLASSESS </span>
+            <span [ngClass]="active == 'classess' ? 'Active1' : 'Active3'"> CLASS SETUPT </span>
         </a>
     </div>
 </div>

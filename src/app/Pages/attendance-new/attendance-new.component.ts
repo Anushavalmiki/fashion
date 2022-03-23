@@ -30,7 +30,13 @@ export class AttendanceNewComponent implements OnInit {
     this.LearningService.GetAttendance_New().subscribe(
       data => {
         debugger
-        this.Attendance=data;
+        if(this.roleid==2){
+          this.Attendance=data.filter(x=>x.empID==this.userid)
+        }
+        else if(this.roleid==4){
+          this.Attendance=data.filter(x=>x.trainerID==this.userid);
+        }
+        
       })
   }
 

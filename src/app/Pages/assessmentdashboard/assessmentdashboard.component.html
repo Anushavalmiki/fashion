@@ -64,7 +64,7 @@
                         <th>Option4</th>
                         <th>Correct Answer</th>
                         <th>Weightage</th>
-                        <!-- <th>Actions</th> -->
+                        <th>Actions</th>
                     </tr>
                     <tr class="header" *ngFor="let item of quetionlist | filter: search">
                         <td>{{item.coursename}}</td>
@@ -78,17 +78,17 @@
                         <td>{{item.option4}}</td>
                         <td>{{item.correctAnswer}}</td>
                         <td>{{item.weightage}}</td>
-                        <!-- <td><button class="addbutton" routerLink="/AssessmentForm">Edit</button> <br>
+                        <td><button class="addbutton" routerLink="/AssessmentForm">Edit</button> <br>
                             <br>
                             <button class="addbutton" (click)="Ondelete(item.id)">Delete</button>
-                        </td> -->
+                        </td> 
                         <!-- <td>
                             <button  [routerLink]="['/Checkanswer',item.id]"  *ngIf="item.checked!=1"
                             class="button1 btn-primary">Check
                         </button>
                         <button *ngIf="item.checked==1" [routerLink]="['/Checkanswer',item.id]" class="button1 btn-primary" id="show==1">View
                         </button>
-                        </td> -->
+                        </td>-->
                     </tr>
                 </thead>
             </table>

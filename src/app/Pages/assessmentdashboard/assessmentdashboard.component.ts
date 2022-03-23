@@ -14,6 +14,9 @@ export class AssessmentdashboardComponent implements OnInit {
   search:any;
   count:any;
   quetionlist:any;
+  courseid:any;
+  coursedetails:any;
+  dummcoursedetails:any;
   ngOnInit(): void {
    this. GetAssessmentResult()
     this.GetAssessments();
@@ -26,19 +29,7 @@ export class AssessmentdashboardComponent implements OnInit {
         // this.result = data.filter(x => x.manager == this.manager );
         this.result = data;
       })
-
-
-
-
-
-
   }
-
-
-
-  courseid:any;
-  coursedetails:any;
-  dummcoursedetails:any;
 
   getcourseid(even: any) {
     debugger
