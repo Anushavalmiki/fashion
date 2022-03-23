@@ -16,10 +16,22 @@ export class AttendanceNewComponent implements OnInit {
   count: any;
   roleid:any;
   userid:any;
+  month:any;
+  year:any;
+  Attendancecopy:any;
+  CourseList:any;
+  CourseID:any;
+  courselist:any;
+  courselistcopy:any;
   ngOnInit(): void {
     this.roleid = sessionStorage.getItem('roleid');
     this.userid = sessionStorage.getItem('userid');
     this.GetAttendance_New();
+    this.GetCourse();
+
+    this.month="0";
+    this.year="0";
+    this.CourseID="Select"
   }
 
 
@@ -35,10 +47,66 @@ export class AttendanceNewComponent implements OnInit {
         }
         else if(this.roleid==4){
           this.Attendance=data.filter(x=>x.trainerID==this.userid);
+
         }
-        
+        else{
+          this.Attendance=data
+        }
+        this.Attendancecopy= this.Attendance
       })
   }
+
+  getmonthID(even: any) {
+    this.month = even.target.value;
+  }
+
+
+  public GetFilteredMonth() {
+    this.LearningService.GetAttendance_New().subscribe(data => {
+      debugger
+      this.Attendance = this.Attendancecopy.filter((x: { month: any; }) => x.month==this.month)
+    })
+  }
+
+  getYearID(even: any) {
+    this.year = even.target.value;
+  }
+
+
+  public GetFilteredYear() {
+    this.LearningService.GetAttendance_New().subscribe(data => {
+      debugger
+      this.Attendance = this.Attendancecopy.filter((x: { year: any; }) => x.year==this.year)
+    })
+  }
+
+  getCourseID(even: any) {
+    debugger
+    this.CourseID = even.target.value;
+   
+  }
+  public GetCourse() {
+    debugger
+    this.LearningService.GetTrainerCourseMapping().subscribe(
+      data => {
+        debugger
+        if(this.roleid==4){
+          this.courselist = data.filter(x=>x.trainerID==this.userid);
+        }
+        else{
+        this.courselist = data
+        }
+        this.courselistcopy= this.courselist
+      })
+  }
+
+  public GetFilteredCourse() {
+    this.LearningService.GetAttendance_New().subscribe(data => {
+      debugger
+      this.Attendance = this.Attendancecopy.filter((x: { courseID: any; }) => x.courseID==this.CourseID)
+    })
+  }
+
 
 
 
