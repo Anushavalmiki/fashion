@@ -15,13 +15,21 @@
             <div class="col-lg-1">
                 <p class="filter" style="margin-left: 15px;">Filter By </p>
             </div>
-            <div class="col-lg-3">
-                <select class="form-control" name="CourseID" id="CourseID" [(ngModel)]="CourseID" (change)="getCourseID($event)" (change)="GetFilteredCourse()">
-                    <option value="Select">Select Course</option>
-                    <option style="color:#0C275A" *ngFor="let details of courselist" value="{{details.id}}">
-                        {{details.courseName}}</option>
+            <div class="col-lg-3"> 
+                <!-- (change)="getCourseID($event)"  -->
+                <select class="form-control" name="CourseID" id="CourseID" [(ngModel)]="CourseID" (change)="getCourseID($event)" >
+                    <option value=''>Select Course</option>
+                    <option style="color:#0C275A" *ngFor="let details of courselist" value="{{details}}">
+                        {{details}}</option>
                 </select>
             </div>
+            <!-- <div class="col-lg-3">
+                <select class="form-control" name="courseid" id="courseid" [(ngModel)]="courseid" (change)="getcourseid($event)">
+                    <option value="">Select Course</option>
+                    <option style="color:#0C275A" *ngFor="let details of courselist" value="{{details.id}}">
+                        {{details.name}}</option>
+                </select>
+            </div>  -->
             <div class="col-lg-2">
                 <select class="form-control" name="month" id="month" [(ngModel)]="month"
                 (change)='getmonthID($event)' (change)="GetFilteredMonth()">
@@ -29,14 +37,12 @@
                     <option value="1">January</option>
                     <option value="2">February</option>
                     <option value="3">March</option>
-
                     <option value="4">April</option>
                     <option value="5">May</option>
                     <option value="6">June</option>
                     <option value="7">July</option>
                     <option value="8">August</option>
                     <option value="9">September</option>
-
                     <option value="10">October</option>
                     <option value="11">November</option>
                     <option value="12">December</option>
@@ -75,6 +81,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <!-- *ngIf="roleid!=2" -->
                                 <tr *ngFor="let details of Attendance | filter: search">
                                     <td>{{details.courseName}}</td>
                                     <td *ngIf="roleid!=2">{{details.employeename}}</td>
