@@ -145,18 +145,20 @@ export class ClassesDashboardComponent implements OnInit {
       debugger;
       let currenteventlist = this.callenderdaysdount.filter((x: { dateformat: string | number | Date; }) => this.datePipe.transform(x.dateformat, 'yyyy-MM-dd') == this.datePipe.transform(MaintainanceList[j].date, 'yyyy-MM-dd'));
       if (currenteventlist.length > 0) {
-        for (let j = 0; j < MaintainanceList.length; j++){}
-        this.callenderdaysdount[currenteventlist[0].date - 1]['ID'] = MaintainanceList[j].id;
-        this.callenderdaysdount[currenteventlist[0].date - 1]['className'] = MaintainanceList[j].className;
-        this.callenderdaysdount[currenteventlist[0].date - 1]['classtype'] = MaintainanceList[j].classtype;
-        this.callenderdaysdount[currenteventlist[0].date - 1]['mantainenceHtml'] =
-          "<span class='event_PendingBookCommunity'> ID :  "+ MaintainanceList[j].id +
-           "<br>  Class  : " + MaintainanceList[j].className +
-           "<br>  Class type : " + MaintainanceList[j].classtype +
-          // "<br>  End Time : " + MaintainanceList[j].endTime +
-          // // "<br>  Unit :" + MaintainanceList[j].unitID +
-          "</span>";
-      }
+        for (let i = 0; i < currenteventlist.length; i++){
+          this.callenderdaysdount[currenteventlist[i].date - 1]['ID'] = MaintainanceList[j].id;
+          this.callenderdaysdount[currenteventlist[i].date - 1]['className'] = MaintainanceList[j].className;
+          this.callenderdaysdount[currenteventlist[i].date - 1]['classtype'] = MaintainanceList[j].classtype;
+          this.callenderdaysdount[currenteventlist[i].date - 1]['mantainenceHtml'] =
+            "<span class='event_PendingBookCommunity'> ID :  "+ MaintainanceList[j].id +
+             "<br>  Class  : " + MaintainanceList[j].className +
+             "<br>  Class type : " + MaintainanceList[j].classtype +
+            // "<br>  End Time : " + MaintainanceList[j].endTime +
+            // // "<br>  Unit :" + MaintainanceList[j].unitID +
+            "</span>";
+        }
+        }
+       
 
     }
   }

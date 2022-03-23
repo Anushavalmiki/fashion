@@ -119,7 +119,7 @@ export class SidebarComponent implements OnInit {
 
   testsubmit() {
     this.active = 'submitest';
-    localStorage.setItem("clickname", "Test Submitted")
+    localStorage.setItem("clickname", "Submitted Test")
   }
 
   employeeAssessment(){
