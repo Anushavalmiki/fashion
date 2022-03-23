@@ -158,7 +158,7 @@ export class LoginComponent implements OnInit {
     else if (this.roleID == 4) {
       this.LearningService.GetTrainer().subscribe(data => {
         let userNameCopy = this.userName.toLowerCase();
-        let temp: any = data.filter(x => (x.phoneNo == this.userName || x.email == this.userName) && x.password == this.password);
+        let temp: any = data.filter(x => (x.email.toLowerCase().includes(userNameCopy) ||x.phoneNo == this.userName) && x.password == this.password);
         this.result = temp[0];
         debugger;
         // this.loader = true;

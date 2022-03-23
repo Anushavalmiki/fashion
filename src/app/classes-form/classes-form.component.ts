@@ -250,5 +250,26 @@ export class ClassesFormComponent implements OnInit {
   cancel() {
     location.href = "#/ClassesDashboard";
   }
+
+  result1:any;  //yet to complete
+  startTime1:any;
+  getStartTime(event:any){
+    this.startTime=event.target.value;
+
+      this.LearningService.GetClasses().subscribe(data => {
+        debugger
+        this.result1 = data;
+        this.startTime1 = this.result[0].startTime;
+        if(this.startTime){
+
+        }
+        else{
+
+        }
+      })
+    }
+  
+
+
 }
 
