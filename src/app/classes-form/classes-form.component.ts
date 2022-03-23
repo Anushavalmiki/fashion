@@ -145,14 +145,14 @@ export class ClassesFormComponent implements OnInit {
     debugger
     for (let i = 0; i <= this.keyresultArray.length; i++) {
       var json = {
-        "subjectID": this.subjectID,
-        "courseID": this.CourseID,
-        "className": this.className,
-        "ClassTypeID": this.classTypeId,
-        "date": this.date,
-        "startTime": this.startTime,
-        "endTime": this.endTime,
-        "classLink": this.classLink,
+        "subjectID": this.keyresultArray[i].subjectID,
+        "courseID": this.keyresultArray[i].courseID,
+        "className": this.keyresultArray[i].className,
+        "ClassTypeID": this.keyresultArray[i].ClassTypeID,
+        "date": this.keyresultArray[i].date,
+        "startTime": this.keyresultArray[i].startTime,
+        "endTime": this.keyresultArray[i].endTime,
+        "classLink": this.keyresultArray[i].classLink,
 
 
       };

@@ -45,17 +45,23 @@ export class CategoryFormComponent implements OnInit {
 
   Save(){
     debugger 
-   var json = {  
-      "Name": this.Name,
-      "Description": this.Description,
-    };
-    this.LearningService.InsertCategoryMaster(json).subscribe(
-      data => {
-        debugger
-        let id = data;
-        alert("Successfully Submitted...!");
-        location.href="/#/CategoryDashboard"
-      })
+    if(this.Name==undefined||this.Description==undefined){
+      Swal.fire("Please Fill all Mandatory fields..");
+    }
+    else{
+      var json = {  
+        "Name": this.Name,
+        "Description": this.Description,
+      };
+      this.LearningService.InsertCategoryMaster(json).subscribe(
+        data => {
+          debugger
+          let id = data;
+          Swal.fire("Successfully Submitted...!");
+          location.href="/#/CategoryDashboard"
+        })
+    }
+ 
   }
 
   Update(){

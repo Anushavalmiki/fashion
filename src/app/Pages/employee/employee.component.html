@@ -7,7 +7,7 @@
 
             <div class="row">
                 <div class="col-lg-10">
-                    <p class="headings">Staff Dashboard</p>
+                    <p class="headings">Student Dashboard</p>
                 </div>
                 <div class="col-lg-2">
                     <p class="count">Count: {{stafflist.length}}</p>
@@ -27,7 +27,7 @@
                     </div>
                     <div class="col-md-6">
                         <input class="form-control search" type="search" [(ngModel)]="search"
-                            placeholder="Search for Staff , Date of joining or Role">
+                            placeholder="Search for Student , Date of Admission">
                     </div>
                 </div>
                 <br>
@@ -39,7 +39,7 @@
                     </p>
                 </div>
                 <div class="col-md-3">
-                    <button class=" addnew" routerLink="/EmployeeForm">Add Staff</button>
+                    <button class=" addnew" routerLink="/EmployeeForm">Add Student</button>
                 </div>
             </div>
             <br>
@@ -58,7 +58,7 @@
                                 <!-- <th>Role</th> -->
                                 <th>Phone Number</th>
                                 <th>Email</th>
-                                <th>Date Of Joining</th>
+                                <th>Date Of Admission</th>
                                 <!-- <th>Manager</th> -->
                                 <th>Actions</th>
                             </tr>
@@ -95,7 +95,7 @@
                         </tbody>
                     </table>
                     <ng-template #noResults>
-                        <p class="NoResultShow"> No results found for "{{search}}" </p>
+                        <p class="NoResultShow"> No results found</p>
                     </ng-template>
                 </div>
             </div>

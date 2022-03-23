@@ -178,7 +178,7 @@ export class ClassesDashboardComponent implements OnInit {
       debugger;
       var s2 = html[1].substring(1,2)
       let HTML = s2
-      let MaintenanceRequest = this.classessList.filter((x: { id: any; }) => x.id == HTML);
+      let MaintenanceRequest = this.classessList.filter((x: { id: any; }) => x.id == HTML  );
       Swal.fire(({
         title: '<strong><u>Class Details</u></strong>',
       
@@ -208,6 +208,41 @@ export class ClassesDashboardComponent implements OnInit {
 
   }
 
+  public ShowMaintenanceRequest1(evn: any) {
+    debugger;
+    var html = evn.srcElement.innerText.split(':');
+    if (html.length <= 5) {
+      debugger;
+      var s2 = html[1].substring(1,2)
+      let HTML = s2
+      let MaintenanceRequest = this.classessList.filter((x: { id: any; }) => x.id == HTML  );
+      Swal.fire(({
+        title: '<strong><u>Class Details</u></strong>',
+      
+        html:
+        
 
+          '<p style="font-size: 14px;text-align: start;margin-left: 10px;"> Course : ' + MaintenanceRequest[0].courseName +
+          '       <br>' +
+          'Subject  : ' + MaintenanceRequest[0].subjectName +
+          '       <br>' +
+          'Start Time  : ' + MaintenanceRequest[0].startTime +
+          '       <br>' +
+          'End Time  : ' + MaintenanceRequest[0].endTime +
+          '       <br>' +
+          'Class Link: ' + MaintenanceRequest[0].classLink +
+          '       <br>' +
+
+          '</p>'
+        ,
+        // showCloseButton: true,
+        showCancelButton: false,
+        focusConfirm: true,
+
+      }));
+    }
+
+
+  }
 
 }

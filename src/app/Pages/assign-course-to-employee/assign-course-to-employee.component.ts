@@ -74,7 +74,7 @@ name123:any;
 
     Swal.fire({
       title: 'Enroll Confirmation',
-      text: "Please click on OK to Assign Course To Employee",
+      text: "Please click on OK to Assign Course to Student",
       icon: 'warning',
       // icon: 'success',
       showCloseButton: true,
@@ -102,8 +102,8 @@ name123:any;
             let id = data;
           })
         Swal.fire(
-          'Cousre Assigned Successfully!!!',
-          'success'
+          'Course Assigned Successfully!!!',
+          'Success'
         );
         location.href = "#/AssignCourseDashboard";
       }

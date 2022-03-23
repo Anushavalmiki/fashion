@@ -96,7 +96,8 @@ export class LoginComponent implements OnInit {
     }
     else if (this.roleID == 2) {
       this.LearningService.GetMyDetails().subscribe(async data => {
-        let temp: any = data.filter(x => (x.emailID == this.userName || x.phoneNo == this.userName) && x.password == this.password);
+        let userNameCopy = this.userName.toLowerCase();
+        let temp: any = data.filter(x => (x.emailID.toLowerCase().includes(userNameCopy) || x.phoneNo == this.userName) && x.password == this.password);
         this.result = temp[0];
         debugger;
         // this.loader = true;
@@ -127,7 +128,8 @@ export class LoginComponent implements OnInit {
 
     else if (this.roleID == 3) {
       this.LearningService.GetMyDetails().subscribe(data => {
-        let temp: any = data.filter(x => (x.emailID == this.userName || x.phoneNo == this.userName) && x.password == this.password);
+        let userNameCopy = this.userName.toLowerCase();
+        let temp: any = data.filter(x => (x.emailID.toLowerCase().includes(userNameCopy)  || x.phoneNo == this.userName) && x.password == this.password);
         this.result = temp[0];
         debugger;
         // this.loader = true;
@@ -155,6 +157,7 @@ export class LoginComponent implements OnInit {
 
     else if (this.roleID == 4) {
       this.LearningService.GetTrainer().subscribe(data => {
+        let userNameCopy = this.userName.toLowerCase();
         let temp: any = data.filter(x => (x.phoneNo == this.userName || x.email == this.userName) && x.password == this.password);
         this.result = temp[0];
         debugger;
