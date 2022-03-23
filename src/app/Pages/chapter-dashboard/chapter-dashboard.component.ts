@@ -13,9 +13,11 @@ export class ChapterDashboardComponent implements OnInit {
 
   constructor(private LearningService: LearningService) { }
   courselist: any;
-
+  userid: any;
+  roleid: any;
   ngOnInit(): void {
-    
+    this.userid = sessionStorage.getItem('userid');
+    this.roleid = sessionStorage.getItem('roleid');
     this.GetChapter();
     this.GetCourse();
  
@@ -25,10 +27,16 @@ export class ChapterDashboardComponent implements OnInit {
 
   public GetCourse() {
     debugger
-    this.LearningService.GetCourse().subscribe(
+    this.LearningService.GetTrainerCourseMapping().subscribe(
       data => {
         debugger
-        this.courselist = data;
+        if(this.roleid==4){
+          this.courselist = data.filter(x=>x.trainerID==this.userid);;
+        }
+        else{
+          this.courselist = data;
+        }
+        
       })
   }
 
@@ -39,15 +47,25 @@ export class ChapterDashboardComponent implements OnInit {
   description: any;
   chapterPhoto: any;
   chapterText: any;
+  chapterList:any;
 
   public GetChapter() {
     debugger
     this.LearningService.GetChapter().subscribe(data => {
       debugger
-      this.coursedetails = data;
-      console.log("courselist",this.coursedetails)
-      this.dummcoursedetails = data;
-      debugger
+      if(this.roleid==4)
+      {
+        this.coursedetails = data;
+        this.coursedetails = data.filter(x=>x.trainerID==this.userid);
+      }
+      else{
+        this.coursedetails = data;
+        console.log("courselist",this.chapterList)
+        this.dummcoursedetails = data;
+      }
+ 
+
+
     })
   }
 

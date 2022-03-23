@@ -18,7 +18,7 @@
                 <select class="form-control" name="cars" id="Duration" (change)="getcourseid($event)">
                     <option value="">Select Course</option>
                     <option style="color:#0C275A" *ngFor="let details of courselist" value="{{details.id}}">
-                        {{details.name}}</option>
+                        {{details.courseName}}</option>
                 </select>
             </div>
             <div class="col-lg-3">
@@ -92,7 +92,7 @@
                     </thead>
                 </table>
                 <ng-template #noResults>
-                    <p class="NoResultShow"> No results found for "{{search}}" </p>
+                    <p class="NoResultShow"> No results found</p>
                 </ng-template>
             </div>
         </div>
