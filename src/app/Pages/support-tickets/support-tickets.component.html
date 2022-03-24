@@ -12,27 +12,39 @@
             <div class="col-lg-2">
                 <p>Date</p>
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-2">
                 <p>Time</p>
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-2">
                 <p>Type Of Issues</p>
             </div>
             <div class="col-lg-2">
-                <p>Realted Attachment</p>
+                <p>Priority</p>
             </div>
+            <div class="col-lg-2">
+                <p>Upload Screenshots</p>
+            </div>
+           
         </div>
         <br>
         <div class="row header">
-            <div class="col-lg-3">
+            <div class="col-lg-2">
                 <input class="form-control" type="date">
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-2">
               <input class="form-control" type="time">
             </div>
             <div class="col-lg-2">       
                 <select class="form-control">
                     <option value="0">Select Issue</option>
+                    <option  value="1">UI Issue</option>
+                    <option  value="2">Data Issue</option>
+                    <option  value="3">Functionality Issue</option>
+                </select>
+            </div>
+            <div class="col-lg-2">       
+                <select class="form-control">
+                    <option value="0">Select Priority Type</option>
                     <option  value="1">U.I Issue</option>
                     <option  value="2">Data Issue</option>
                     <option  value="3">Functionality Issue</option>
@@ -46,27 +58,19 @@
                     </ngx-dropzone-preview>
                 </ngx-dropzone>
             </div>
+           
         </div> <br>
         <div class="row">
             <div class="col-lg-4">
                 <p>Comments</p>
             </div>
-            <div class="col-lg-2">
-                <p>Priority</p>
-            </div>
+          
         </div>
         <div class="row">
             <div class="col-lg-4">
                 <textarea class="form-control" placeholder="Comments" rows="5"></textarea>
             </div>
-            <div class="col-lg-2">       
-                <select class="form-control">
-                    <option value="0">Select Priority Type</option>
-                    <option  value="1">U.I Issue</option>
-                    <option  value="2">Data Issue</option>
-                    <option  value="3">Functionality Issue</option>
-                </select>
-            </div>      
+              
         </div><br>
         <div class="row">
             <div class="col-lg-9"></div>
