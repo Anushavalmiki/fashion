@@ -141,11 +141,6 @@
          </span>
 
             </a>
-
-            
-
-
-
             <a routerLink="/Trainer" class="tablinks" (click)="highlight($event)" (click)="trainer()">
                 <img src="assets/Images/people.png" style="width:13% ;margin-right: 17px;"
                     [ngClass]="active == 'trainer' ? 'Active1' : 'Active2'" />
@@ -260,5 +255,27 @@
             &nbsp;
             <span [ngClass]="active == 'classess' ? 'Active1' : 'Active3'"> CLASS SETUP </span>
         </a>
+
+        <a *ngIf="roleid==4||roleid==2 || roleid==3||roleid==1" routerLink="/Help" class="tablinks" (click)="highlight($event)"
+        (click)="help()">
+        <img src="assets/Images/people.png" style="width:13% ;margin-right: 17px;"
+            [ngClass]="active == 'Help' ? 'Active1' : 'Active2'" />
+        <img [ngClass]="active != 'Help' ? 'Active1' : 'Active2'"
+            src="assets/Images/New folder/people (1).png" style="width:13%; margin-right: 17px;">
+        &nbsp;
+        <span [ngClass]="active == 'Help' ? 'Active1' : 'Active3'">HELP</span>
+        &nbsp;
+          </a>
+
+          <a *ngIf="roleid==4||roleid==2 || roleid==3||roleid==1" routerLink="/SupportTickets" class="tablinks" (click)="highlight($event)"
+          (click)="SupportTickets()">
+          <img src="assets/Images/people.png" style="width:13% ;margin-right: 17px;"
+              [ngClass]="active == 'SupportTickets' ? 'Active1' : 'Active2'" />
+          <img [ngClass]="active != 'SupportTickets' ? 'Active1' : 'Active2'"
+              src="assets/Images/New folder/people (1).png" style="width:13%; margin-right: 17px;">
+          &nbsp;
+          <span [ngClass]="active == 'SupportTickets' ? 'Active1' : 'Active3'">SUPPORT TICKETS</span>
+          &nbsp;
+            </a>
     </div>
 </div>

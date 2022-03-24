@@ -47,6 +47,8 @@ import { SubjectdetailsComponent } from './subjectdetails/subjectdetails.compone
 
 import { ClassesDashboardComponent } from './classes-dashboard/classes-dashboard.component';
 import { ClassesFormComponent } from './classes-form/classes-form.component';
+import { HelpComponent } from './Pages/help/help.component';
+import { SupportTicketsComponent } from './Pages/support-tickets/support-tickets.component';
 
 
 
@@ -110,7 +112,9 @@ const routes: Routes = [
   {path:'Subjectdetails/:id',component:SubjectdetailsComponent},
   {path:'ClassesDashboard',component:ClassesDashboardComponent},
   {path:'ClassesForm',component:ClassesFormComponent},
-  {path:'ClassesForm/:id',component:ClassesFormComponent}
+  {path:'ClassesForm/:id',component:ClassesFormComponent},
+  {path:'Help',component:HelpComponent},
+  {path:'SupportTickets',component:SupportTicketsComponent}
 
  
 
