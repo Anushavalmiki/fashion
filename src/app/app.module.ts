@@ -67,6 +67,8 @@ import { SubjectdetailsComponent } from './subjectdetails/subjectdetails.compone
 import { ClassesDashboardComponent } from './classes-dashboard/classes-dashboard.component';
 import { ClassesFormComponent } from './classes-form/classes-form.component';
 import { DatePipe } from '@angular/common';
+import { HelpComponent } from './Pages/help/help.component';
+import { SupportTicketsComponent } from './Pages/support-tickets/support-tickets.component';
 
 
 
@@ -125,6 +127,8 @@ const ngWizardConfig: NgWizardConfig = {
     SubjectdetailsComponent,
     ClassesDashboardComponent,
     ClassesFormComponent,
+    HelpComponent,
+    SupportTicketsComponent,
 
   
   ],
