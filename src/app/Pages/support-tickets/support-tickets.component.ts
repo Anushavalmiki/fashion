@@ -26,10 +26,12 @@ export class SupportTicketsComponent implements OnInit {
 
 
   files: File[] = [];
+  files1: File[] = [];
   onSelect(event: { addedFiles: any; }) {
     debugger
     console.log(event);
     this.files.push(event.addedFiles[0]);
+    this.files1.push(event.addedFiles[0]);
 
     console.log("content", this.files);
     this.AttachmentsUpload()
@@ -40,6 +42,8 @@ export class SupportTicketsComponent implements OnInit {
     this.LearningService.AttachmentsUploadsss(this.files).subscribe(data => {
       debugger
       this.screenShot.push(data);
+      console.log( "data",this.screenShot);
+      this.files.length=0;
     })
   }
 
@@ -58,15 +62,22 @@ export class SupportTicketsComponent implements OnInit {
       "Priority": this.prority,
       "ScreenShot": this.screenShot[0],
       "Comment": this.comments,
-      "Status": this.status,
-      "Companyname": this.companyname,
-      "ApplicationName": this.applicationName
+      "Status": 'Raised',
+      "Companyname": 'Amazeinc.in',
+      "ApplicationName": 'LMS Fashion'
     }
     this.LearningService.InsertSupportTickets(entity).subscribe(
       data => {
         this.ticketid = data;
         this.uploadmultipleimages()
         Swal.fire("Saved Sucessfully");
+        location.href="#/SupportTicketDashboard";
+
+        this.date='';
+        this.time='';
+        this.typeofissue='';
+        this.prority='';
+        this.comments='';
 
       }
     )
@@ -74,7 +85,7 @@ export class SupportTicketsComponent implements OnInit {
   ticketid: any
   public uploadmultipleimages() {
       debugger
-    for (let i = 0; this.screenShot.length; i++) {
+    for (let i = 0; i<this.screenShot.length; i++) {
       var entity = {
         "Attachment": this.screenShot[i],
         "TicketID": this.ticketid,

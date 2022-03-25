@@ -49,6 +49,7 @@ import { ClassesDashboardComponent } from './classes-dashboard/classes-dashboard
 import { ClassesFormComponent } from './classes-form/classes-form.component';
 import { HelpComponent } from './Pages/help/help.component';
 import { SupportTicketsComponent } from './Pages/support-tickets/support-tickets.component';
+import { SupportTicketDashboardComponent } from './support-ticket-dashboard/support-ticket-dashboard.component';
 
 
 
@@ -114,7 +115,8 @@ const routes: Routes = [
   {path:'ClassesForm',component:ClassesFormComponent},
   {path:'ClassesForm/:id',component:ClassesFormComponent},
   {path:'Help',component:HelpComponent},
-  {path:'SupportTickets',component:SupportTicketsComponent}
+  {path:'SupportTickets',component:SupportTicketsComponent},
+  {path:'SupportTicketDashboard',component:SupportTicketDashboardComponent}
 
  
 

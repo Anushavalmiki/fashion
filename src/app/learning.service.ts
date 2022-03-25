@@ -10,7 +10,7 @@ export class LearningService {
   public baseURL = "http://103.133.214.197/LmsFashion/";
   public host = "https://digioffice.amazeone.co/digiofficeapi";
 
-  public host1="http://103.133.214.197/SupportTicketsAPI";
+  public host1="https://support.amazeone.co/SupportAPI/";
   url: any;
   constructor(private http: HttpClient) {
     console.log("environment", environment.hostUrl);
@@ -50,7 +50,7 @@ export class LearningService {
       formdata.append('file_upload', files[i], files[i].name);
     }
     debugger
-    let APIURL = this.baseURL + "Master/UploadImages/";
+    let APIURL = this.host1 + "Master/UploadImages/";
     return this.http.post(APIURL, formdata);
   }
 
@@ -796,6 +796,18 @@ export class LearningService {
     debugger;
     this.url = this.host1 + '/Master/InsertAttachment';
     return this.http.post(this.url, data);
+  }
+
+  public GetSupportTickets() {
+    debugger;
+    return this.http.get<any[]>(
+      this.host1 + '/Master/GetSupportTickets');
+  }
+
+  public GetSupportAttachment() {
+    debugger;
+    return this.http.get<any[]>(
+      this.host1 + '/Master/GetSupportAttachment');
   }
 
 }

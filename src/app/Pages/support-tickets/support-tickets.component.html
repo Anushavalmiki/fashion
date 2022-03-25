@@ -54,16 +54,16 @@
             <div class="col-lg-4">
                 <p>Comments</p>
             </div>
-           <div class="col-lg-3">
+           <!-- <div class="col-lg-3">
                <p>Status</p>
-           </div>
+           </div> -->
          
         </div>
         <div class="row">
             <div class="col-lg-3">
                 <ngx-dropzone (change)="onSelect($event)" [(ngModel)]="screenShot" style="width:100% ;height: auto; text-align: center;">
                     <ngx-dropzone-label>Please Attach Photo!</ngx-dropzone-label>
-                    <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                    <ngx-dropzone-preview *ngFor="let f of files1" [removable]="true" (removed)="onRemove(f)">
                         <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
                     </ngx-dropzone-preview>
                 </ngx-dropzone>
@@ -71,29 +71,29 @@
             <div class="col-lg-4">
                 <textarea class="form-control" placeholder="Comments" rows="5" name="comments" id="comments" [(ngModel)]="comments"></textarea>
             </div>
-            <div class="col-lg-3">
+            <!-- <div class="col-lg-3">
                 <input class="form-control" placeholder="Status"  name="status" id="status" [(ngModel)]="status">
-            </div>
+            </div> -->
             
               
         </div><br>
          
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-lg-3">
                 <p>Company Name</p>
             </div>
             <div class="col-lg-3">
                 <p>Application Name </p>
             </div>
-        </div>
+        </div> -->
        
         <div class="row">
-            <div class="col-lg-3">
+            <!-- <div class="col-lg-3">
                 <input class="form-control" placeholder="Company Name" name="companyname" id="companyname" [(ngModel)]="companyname">
             </div>
             <div class="col-lg-3">
                 <input class="form-control" placeholder="Application Name" name="applicationName" id="applicationName" [(ngModel)]="applicationName">
-            </div>
+            </div> -->
            
         </div>
         
