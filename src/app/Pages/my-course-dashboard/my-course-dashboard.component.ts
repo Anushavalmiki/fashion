@@ -31,7 +31,7 @@ export class MyCourseDashboardComponent implements OnInit {
       debugger
       this.stafflist = data.filter(x => x.id == this.userid);
       this.managlist = data.filter(x=>x.id==this.manager)    
-      this.manageremail=this.managlist[0].emailID
+      this.manageremail=this.managlist[0].emailID;
    
     });
 
@@ -70,6 +70,7 @@ export class MyCourseDashboardComponent implements OnInit {
 
 
   };
+  
   Showcards(value: any) {
     this.show = value;
     if (value == 1) {
@@ -87,7 +88,7 @@ export class MyCourseDashboardComponent implements OnInit {
     else if (value == 4) {
       this.LearningService.GetCourse().subscribe(data => {
         debugger
-        this.coursedetails = data.filter(x=> x.staffID=this.userid&&x.completed==1);
+        this.coursedetails = data.filter(x=> x.staffID=this.userid && x.completed==1);
       });
       }
   }

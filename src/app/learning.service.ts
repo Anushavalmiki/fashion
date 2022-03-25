@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { environment } from "../environments/environment";
-import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -10,6 +10,7 @@ export class LearningService {
   public baseURL = "http://103.133.214.197/LmsFashion/";
   public host = "https://digioffice.amazeone.co/digiofficeapi";
 
+  public host1="http://103.133.214.197/SupportTicketsAPI";
   url: any;
   constructor(private http: HttpClient) {
     console.log("environment", environment.hostUrl);
@@ -21,11 +22,28 @@ export class LearningService {
   }
 
 
+
+
+
   public GetRecruiterStaff() {
 
     return this.http.get<any[]>(this.host + "/User/GetRecruiterStaff");
   }
+
   public AttachmentsUpload(files: any) {
+    debugger
+    let formdata: FormData = new FormData();
+    for (let i = 0; i < files.length; i++) {
+      formdata.append('file_upload', files[i], files[i].name);
+    }
+    debugger
+    let APIURL = this.host1 + "Master/UploadImages/";
+    return this.http.post(APIURL, formdata);
+  }
+
+
+
+  public AttachmentsUploadsss(files: any) {
     debugger
     let formdata: FormData = new FormData();
     for (let i = 0; i < files.length; i++) {
@@ -35,6 +53,7 @@ export class LearningService {
     let APIURL = this.baseURL + "Master/UploadImages/";
     return this.http.post(APIURL, formdata);
   }
+
   public GetRoleType() {
     return this.http.get<any[]>(
       this.host + "/MasterDemo/GetRoleType?UserTypeID=" + 1
@@ -761,6 +780,22 @@ export class LearningService {
     debugger;
     return this.http.get<any[]>(
       this.baseURL + '/Master/GetClassType');
+  }
+
+
+
+  
+  public InsertSupportTickets(data: any) {
+    debugger;
+    this.url = this.host1 + '/Master/InsertSupportTickets';
+    return this.http.post(this.url, data);
+  }
+
+
+  public InsertAttachment(data: any) {
+    debugger;
+    this.url = this.host1 + '/Master/InsertAttachment';
+    return this.http.post(this.url, data);
   }
 
 }
