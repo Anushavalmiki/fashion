@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LearningService } from '../learning.service';
-
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-support-ticket-dashboard',
   templateUrl: './support-ticket-dashboard.component.html',
@@ -8,12 +8,20 @@ import { LearningService } from '../learning.service';
 })
 export class SupportTicketDashboardComponent implements OnInit {
 
-  constructor(private LearningService:LearningService) { }
+  constructor(private LearningService:LearningService, private ActivatedRoute: ActivatedRoute) { }
   ticketlist:any;
   search:any;
   count:any;
+  id:any;
   ngOnInit(): void {
     this.GetSupportTickets();
+    this.ActivatedRoute.params.subscribe(params => {
+      debugger
+      this.id = params["id"];
+      if (this.id != null && this.id != undefined) {
+        this.GetSupportTickets();
+      }
+    })
   }
 
 

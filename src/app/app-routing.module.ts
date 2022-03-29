@@ -116,6 +116,7 @@ const routes: Routes = [
   {path:'ClassesForm/:id',component:ClassesFormComponent},
   {path:'Help',component:HelpComponent},
   {path:'SupportTickets',component:SupportTicketsComponent},
+  {path:'SupportTickets/:id',component:SupportTicketsComponent},
   {path:'SupportTicketDashboard',component:SupportTicketDashboardComponent}
 
  

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LearningService } from 'src/app/learning.service';
 import Swal from 'sweetalert2';
-
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-support-tickets',
   templateUrl: './support-tickets.component.html',
@@ -9,24 +9,53 @@ import Swal from 'sweetalert2';
 })
 export class SupportTicketsComponent implements OnInit {
 
-  constructor(private LearningService: LearningService) { }
+  constructor(private LearningService: LearningService, public ActivatedRoute: ActivatedRoute) { }
 
   date: any;
   time: any;
   typeofissue: any;
   prority: any;
-  screenShot:any=[]
+  screenShot: any = []
   comments: any;
   status: any;
   companyname: any;
   applicationName: any;
-  ngOnInit(): void {
-  }
-
-
+  id: any;
+  ticketlist: any;
 
   files: File[] = [];
   files1: File[] = [];
+
+  ngOnInit(): void {
+    this.typeofissue = "0";
+    this.prority = "0";
+
+    this.ActivatedRoute.params.subscribe(params => {
+      debugger
+      this.id = params["id"];
+      if (this.id != null && this.id != undefined) {
+        this.GetSupportTickets();
+      }
+    })
+
+  }
+
+  public GetSupportTickets() {
+    this.LearningService.GetSupportTickets().subscribe(
+      data => {
+        this.ticketlist = data.filter(x => x.applicationName == 'LMS Fashion'&& x.id==this.id);
+        this.date = this.ticketlist[0].date,
+          this.time = this.ticketlist[0].time1,
+          this.typeofissue = this.ticketlist[0].typeOfApplicationIssues,
+          this.prority = this.ticketlist[0].priority,
+          this.screenShot[0] = this.ticketlist[0].screenShot,
+          this.comments = this.ticketlist[0].comment
+
+      }
+    )
+  }
+
+
   onSelect(event: { addedFiles: any; }) {
     debugger
     console.log(event);
@@ -42,8 +71,8 @@ export class SupportTicketsComponent implements OnInit {
     this.LearningService.AttachmentsUploadsss(this.files).subscribe(data => {
       debugger
       this.screenShot.push(data);
-      console.log( "data",this.screenShot);
-      this.files.length=0;
+      console.log("data", this.screenShot);
+      this.files.length = 0;
     })
   }
 
@@ -71,21 +100,21 @@ export class SupportTicketsComponent implements OnInit {
         this.ticketid = data;
         this.uploadmultipleimages()
         Swal.fire("Saved Sucessfully");
-        location.href="#/SupportTicketDashboard";
+        location.href = "#/SupportTicketDashboard";
 
-        this.date='';
-        this.time='';
-        this.typeofissue='';
-        this.prority='';
-        this.comments='';
+        this.date = '';
+        this.time = '';
+        this.typeofissue = '';
+        this.prority = '';
+        this.comments = '';
 
       }
     )
   }
   ticketid: any
   public uploadmultipleimages() {
-      debugger
-    for (let i = 0; i<this.screenShot.length; i++) {
+    debugger
+    for (let i = 0; i < this.screenShot.length; i++) {
       var entity = {
         "Attachment": this.screenShot[i],
         "TicketID": this.ticketid,
@@ -97,14 +126,42 @@ export class SupportTicketsComponent implements OnInit {
         }
       )
     }
-
-
   }
 
 
+  public Update() {
+    var entity = {
+      "id": this.id,
+      "Date": this.date,
+      "Time": this.time,
+      "TypeOfApplicationIssues": this.typeofissue,
+      "Priority": this.prority,
+      "ScreenShot": this.screenShot[0],
+      "Comment": this.comments,
+      "Status": 'Raised',
+      "Companyname": 'Amazeinc.in',
+      "ApplicationName": 'LMS Fashion'
+    }
+    this.LearningService.UpdateSupportTickets(entity).subscribe(
+      data => {
+        this.ticketid = data;
+        this.uploadmultipleimages()
+        Swal.fire("Updated Sucessfully");
+        location.href = "#/SupportTicketDashboard";
 
+        this.date = '';
+        this.time = '';
+        this.typeofissue = '';
+        this.prority = '';
+        this.comments = '';
 
+      }
+    )
+  }
 
+public cancel(){
+  location.href = "#/SupportTicketDashboard";
+}
 
 
 }

@@ -48,7 +48,7 @@
             </div>         
         </div> <br>
         <div class="row">
-            <div class="col-lg-3">
+            <div class="col-lg-3" *ngIf="id==null || id==undefined">
                 <p>Upload Screenshots</p>
             </div>
             <div class="col-lg-4">
@@ -60,7 +60,7 @@
          
         </div>
         <div class="row">
-            <div class="col-lg-3">
+            <div class="col-lg-3" *ngIf="id==null || id==undefined">
                 <ngx-dropzone (change)="onSelect($event)" [(ngModel)]="screenShot" style="width:100% ;height: auto; text-align: center;">
                     <ngx-dropzone-label>Please Attach Photo!</ngx-dropzone-label>
                     <ngx-dropzone-preview *ngFor="let f of files1" [removable]="true" (removed)="onRemove(f)">
@@ -98,15 +98,14 @@
         </div>
         
         <div class="row">
-            <div class="col-lg-9"></div>
+            <div class="col-lg-10"></div>
             <div class="col-lg-1">
                 <!-- <button class="form-control button1">Save</button> -->
-                <button class="form-control cancel" (click)="save()">Save</button>
-                <!-- <button class="form-control cancel"
-                    (click)="Update()">Update</button> -->
+                <button class="form-control cancel" *ngIf="id==null || id==undefined" (click)="save()">Save</button>
+                <button class="form-control cancel" *ngIf="id!=null || id!=undefined" (click)="Update()">Update</button>
             </div>
             <div class="col-lg-1">
-                <button class="form-control  cancel ">Cancel</button>
+                <button class="form-control  cancel " (click)="cancel()">Cancel</button>
             </div>
         </div>
 

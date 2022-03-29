@@ -54,17 +54,18 @@
                             <td>{{details.time}}</td>   
                             <td>{{details.typeOfApplicationIssues}}</td> 
                             <td>
-                                <img class="image"    src="{{details.screenShot}}" (click)="image(details.id)" data-toggle="modal" data-target="#exampleModal1">
+                                <img  src="assets/Images/image.png" style="width:20px; height:20px" (click)="image(details.id)" data-toggle="modal" data-target="#exampleModal1">
                             </td>
                             <td>{{details.comment}}</td>
                             <td>{{details.priority}}</td>
                             <td>{{details.status}}</td>
                             <td>
-                                <img src="assets/Images/Edit_ICON.png" alt="Edit_ICON" style="width:20px; height:auto"
-                                    > &nbsp;&nbsp;
+                                <img src="assets/Images/Edit_ICON.png" alt="Edit_ICON" style="width:20px; height:auto"  [routerLink]="['/SupportTickets',details.id]"
+                                   *ngIf="details.status=='Open'"> &nbsp;&nbsp;
 
                                         <img src="assets/Images/Delete_ICON.png" alt="Delete_ICON"
-                                              style="width:20px; height:auto" >
+                                              style="width:20px; height:auto" *ngIf="details.status=='Open'" >
+                                              <p *ngIf="details.status!='Open'">NA</p>
                             </td> 
                         </tr>
                     </thead>

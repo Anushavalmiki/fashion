@@ -49,8 +49,9 @@ export class LearningService {
     for (let i = 0; i < files.length; i++) {
       formdata.append('file_upload', files[i], files[i].name);
     }
+
     debugger
-    let APIURL = this.host1 + "Master/UploadImages/";
+    let APIURL = this.baseURL + "Master/UploadImages/";
     return this.http.post(APIURL, formdata);
   }
 
@@ -799,15 +800,21 @@ export class LearningService {
   }
 
   public GetSupportTickets() {
-    debugger;
     return this.http.get<any[]>(
-      this.host1 + '/Master/GetSupportTickets');
+      this.host1 + "/Master/GetSupportTickets"
+    );
   }
 
   public GetSupportAttachment() {
-    debugger;
-    return this.http.get<any[]>(
-      this.host1 + '/Master/GetSupportAttachment');
+
+    return this.http.get<any[]>(this.host1 + "/Master/GetSupportAttachment");
   }
+
+  public UpdateSupportTickets(data: any) {
+    debugger;
+    this.url = this.host1 + '/Master/UpdateSupportTickets';
+    return this.http.post(this.url, data);
+  }
+
 
 }
